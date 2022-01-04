@@ -1,9 +1,10 @@
-var subBtn = $('.submit');
+var searchBtn = $('#searchBtn');
+var crVar = $('#crEnter');
 var fetchStatus = "";
 
 function goGet() {
     // Change this to reflect an input.
-    var paramVar = '11';
+    var paramVar = crVar.val();
     var requestUrl = 'https://api.open5e.com/monsters/?challenge_rating=' + paramVar;
     fetch(requestUrl)
     .then(function (response) {
@@ -12,24 +13,28 @@ function goGet() {
             fetchStatus = "good";
             return response.json();
         } else {
-            fetchStatus = "bad"
+            fetchStatus = "bad";
             console.log("bad request");
         }
     })
     .then(function (data) {
         if (fetchStatus == "good") {
             console.log(data);
-            populate();
+            // Function populate() isn't added yet.
+            // populate();
         } else {
             console.log("bad request the second");
         }
     })
 }
 
-function populate() {
-    for (var i = 0; i < data.length; i++) {
-        thisMonster[i] = data
-    }
-};
+// // Very unfinished; just a placeholder right now.
+// function populate() {
+//     for (var i = 0; i < data.length; i++) {
+//         thisMonster[i] = data
+//     }
+// };
 
-subBtn.on('click', goGet());
+searchBtn.on('click', function() {
+    goGet();
+});
