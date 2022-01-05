@@ -29,20 +29,21 @@
 #searchBars {
     float: left;
     width: 15%;
-    height: 100vh;
     margin-left: 15px;
-    margin-right: 15px;
 }
 
-#monsterList {
-    display: inline;
+.results-screen {
+    float: right;
+    width: 80%;
+    margin-right: 25px;
 }
 
-.monsterClass {
-    display: inline-block;
+.monsterCard {
     background-color: whitesmoke;
     width: 250px;
+    min-height: 125px;
     padding: 12px;
+    margin: 10px;
     border-style: solid;
     border-width: 1px;
     border-radius: 6px;
