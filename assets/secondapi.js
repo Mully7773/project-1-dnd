@@ -17,6 +17,8 @@ function randomFood(foodSearch) {
             if(data.expires){
                 console.log(data.menuItems[0].title)
                 console.log(data)
+
+                $("#snack").text(data.menuItems[0].title);
             }
             // picNiss = data.menuItems[1].title;
             // console.log(picNiss)
