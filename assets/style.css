@@ -47,3 +47,20 @@
     border-width: 1px;
     border-radius: 6px;
 }
+
+.drop, li {
+ color: blue;
+ background: #0a0a0a;
+}
+a {
+    text-decoration: none;
+}
+.feet {
+    border: 3px solid black;
+    margin-top: 46%;
+    background-color:#0a0a0a;
+   height: 20%;
+   color: white;
+   /* font-size: 30px;
+   text-align: center; */
+}

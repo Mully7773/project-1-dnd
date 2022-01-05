@@ -44,3 +44,5 @@ function populate() {
 searchBtn.on('click', function() {
     goGet();
 });
+// dropdown menu
+ $(document).foundation();
