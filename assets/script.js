@@ -3,7 +3,6 @@ var crVar = $('#crEnter');
 var fetchStatus = "";
 
 function goGet() {
-    // Change this to reflect an input.
     var paramVar = crVar.val();
     var requestUrl = 'https://api.open5e.com/monsters/?challenge_rating=' + paramVar;
     fetch(requestUrl)
