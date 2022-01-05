@@ -30,16 +30,24 @@ function goGet() {
     })
 }
 
+// TODO: Add a second API request to get the next page's worth of data if result returns >50.
+
 function populate() {
     monstListEl.empty();
     for (var i = 0; i < monsterArray.results.length; i++) {
         var thisMonster = monsterArray.results[i];
-        var monsterCard = $('<p>').addClass('monsterClass').text(thisMonster.name);
-        // var monsterType = $('<p>').addClass('type').text(thisMonster.type);
+        var monsterCard = $('<div>').addClass('monsterCard');
+        // var innerDiv = $('<div>').addClass('innerDiv');
+        var monsterName = $('<h4>').addClass('monsterName').text(thisMonster.name);
+        var monsterType = $('<p>').addClass('monsterType').text(thisMonster.type);
         console.log(thisMonster);
+        monsterCard.append(monsterName);
+        monsterCard.append(monsterType);
         monstListEl.append(monsterCard);
     }
 };
+
+// TODO: Add script to apply class based on type, and add CSS.
 
 searchBtn.on('click', function() {
     goGet();
