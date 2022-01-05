@@ -1,5 +1,8 @@
 var searchBtn = $('#searchBtn');
 var crVar = $('#crEnter');
+var monstListEl = $('#monsterList');
+var monsterArray = [];
+
 var fetchStatus = "";
 
 function goGet() {
@@ -19,20 +22,23 @@ function goGet() {
     .then(function (data) {
         if (fetchStatus == "good") {
             console.log(data);
-            // Function populate() isn't added yet.
-            // populate();
+            monsterArray = data;
+            populate();
         } else {
             console.log("bad request the second");
         }
     })
 }
 
-// // Very unfinished; just a placeholder right now.
-// function populate() {
-//     for (var i = 0; i < data.length; i++) {
-//         thisMonster[i] = data
-//     }
-// };
+function populate() {
+    monstListEl.empty();
+    for (var i = 0; i < monsterArray.results.length; i++) {
+        var thisMonster = monsterArray.results[i];
+        var monsterCard = $('<p>').addClass('monsterClass').text(thisMonster.name);
+        console.log(thisMonster);
+        monstListEl.append(monsterCard);
+    }
+};
 
 searchBtn.on('click', function() {
     goGet();
