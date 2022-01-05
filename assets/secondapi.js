@@ -1,6 +1,6 @@
 
 function randomFood(foodSearch) {
-    fetch("https://api.spoonacular.com/food/menuItems/search?query=" + foodSearch + "&number=1&apiKey=bc3600e23d5e465f999caa4b7e68f31a")
+    fetch("https://api.spoonacular.com/food/menuItems/search?query=" + foodSearch + "&number=1&apiKey=4205dfaac5c8485eb2c6e53fe9758c5c")
         .then(function (response) {
             if (response.ok) {
                 fetchStatus = "good";
@@ -17,7 +17,7 @@ function randomFood(foodSearch) {
             if(data.expires){
                 console.log(data.menuItems[0].title)
                 console.log(data)
-
+                $("#img1").attr("src", data.menuItems[0].img+ ".png")
                 $("#snack").text(data.menuItems[0].title);
             }
             // picNiss = data.menuItems[1].title;
