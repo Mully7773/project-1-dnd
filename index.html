@@ -1,22 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D&D Monster Challenge Rating Search</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
     <!-- Foundation CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
+        crossorigin="anonymous">
+    <!-- Personal Stylesheet -->
     <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <header>
 
+    <!-- Two different schemas -->
+
+    <!-- <div class="top-bar">
+        <div class="top-bar-left">
+            <div class="icon-bar one-up">
+                <a href="index.html">
+                  <img class="header-logo" src="assets/images/icons/spiked-dragon-head.svg">
+                </a>
+            </div>
+        </div>
+            <div class="top-bar-title">
+                <h1 class=>Dragon Masters</h1>
+            </div> -->
+
+    <div class="title-bar">
+        <div class="title-bar-left">
+            <div>
+                <a href="index.html">
+                    <img class="header-logo" src="assets/images/icons/spiked-dragon-head.svg">
+                </a>
+                <h1 class="title-bar-title">D&D Seekers</h1>
+            </div>
+        </div>
+        <div class="title-bar-right">
+            <button class="menu-icon" type="button"></button>
+        </div>
+    </div>
+    <!-- <ul class="menu">
+            <li class="menu-text"></li>
+          </ul> -->
+
+    </div>
 </header>
+
 <body>
     <!-- The header and current form is a placeholder I put in to test functionality. Feel free to replace with something nicer. :] -Ben -->
-    <header>
-        <h1>D&D Challenge Rating Search</h1>
-    </header>
+
+
+    <!-- Jumbotron -->
+    <div id="jumbotron" class="callout large primary ">
+        <div class="row column text-center">
+            <h1 id="jumbo-header-text">Where you can find...</h1>
+            <h2 id="jumbo-header-subtext" class="subheader">Monster challenge ratings and more</h2>
+        </div>
+    </div>
+
+    
+
     <form>
         <label for="cr">Choose Challenge Rating:</label>
         <select id="crEnter" name="Challenge Rating">
@@ -54,15 +103,78 @@
         </select>
         <button type="button" class="button" id="searchBtn">Search</button>
     </form>
+
+
+    <!-- <section class="challenge-search">
+        <div class="row">
+          <div class="large-12 medium-12 columns">
+    <ul class="dropdown menu" data-dropdown-menu>
+        <form>
+            <label for="cr">Choose Challenge Rating:</label>
+            <select id="crEnter" name="Challenge Rating">
+               <option value="0">0</option>
+                <option value="1/8">1/8</option>
+                <option value="1/4">1/4</option>
+                <option value="1/2">1/2</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+            </select>
+      </ul>
+</div>
+</div>
+</section> -->
+
+   
+
+
+    <section class="results-screen row">
+        <div class="columns large-12 medium-12">
+            <h2 class="text-center">Your results:</h2>
+            <ul class="lead vertical menu align-center">
+                <li><a href="#">Results</a></li>
+                <li><a href="#">Two</a></li>
+                <li><a href="#">Three</a></li>
+                <li><a href="#">Four</a></li>
+            </ul>
+            <br>
+        </div>
+    </section>
     
     <!-- jQuery links -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
     <!-- AJAX and foundation JavaScript links -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js"
+        crossorigin="anonymous"></script>
     <script src="assets/script.js"></script>
     <footer></footer>
 </body>
+
 </html>
