@@ -35,6 +35,7 @@ function populate() {
     for (var i = 0; i < monsterArray.results.length; i++) {
         var thisMonster = monsterArray.results[i];
         var monsterCard = $('<p>').addClass('monsterClass').text(thisMonster.name);
+        // var monsterType = $('<p>').addClass('type').text(thisMonster.type);
         console.log(thisMonster);
         monstListEl.append(monsterCard);
     }
