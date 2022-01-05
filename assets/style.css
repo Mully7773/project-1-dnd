@@ -5,7 +5,6 @@
     font-family: 'MedievalSharp', cursive !important;
 }
 
-
 .header-logo {
     height: 95px;
     margin-left: 5px;
@@ -14,7 +13,7 @@
 }
 
 #jumbo-header-text {
-    color: rgba(233, 243, 235, 0.774);
+    color: rgba(243, 243, 243, 0.774);
 }
 
 #jumbo-header-subtext {
@@ -25,4 +24,10 @@
     background:url(images/planet-g811dbd317_1920-pixabay.jpg) no-repeat center center fixed;
     -webkit-background-composite: cover;
     background-size: cover;
+}
+
+#searchBars {
+    float: left;
+    width: 15%;
+    margin-left: 15px;
 }

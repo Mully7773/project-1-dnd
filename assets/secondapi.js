@@ -3,11 +3,11 @@ function randomFood(foodSearch) {
     fetch("https://api.spoonacular.com/food/menuItems/search?query=" + foodSearch + "&number=1&apiKey=bc3600e23d5e465f999caa4b7e68f31a")
         .then(function (response) {
             if (response.ok) {
-                fetchStatus = "good";
+                fetchStatus = "goodFood";
 
                 return response.json();
             } else {
-                fetchStatus = "bad";
+                fetchStatus = "badFood";
                 // console.log(foodSearch);
 
             }
@@ -32,7 +32,7 @@ randomFood()
 function getInputValue(e) {
     e.preventDefault()
     // Selecting the input element and get its value 
-    var inputVal = document.getElementById("citySearch").value;
+    var inputVal = document.getElementById("foodSearch").value;
 
     randomFood(inputVal);
     console.log(inputVal)
