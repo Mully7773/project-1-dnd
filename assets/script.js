@@ -32,11 +32,11 @@ function goGet(requestUrl) {
         } if (monsterArray.next || monsterArray.previous) {
             if (monsterArray.next) {
                 // console.log('next found')
-                var nextPage = $('<a>').addClass('pag-button').attr('id', 'next-button').text('Next Results').attr('href', '#').attr('data-request', monsterArray.next);
+                var nextPage = $('<a>').addClass('pag-button').attr('id', 'next-button').text('Next Results').attr('href', '#top-display').attr('data-request', monsterArray.next);
                 $('#pag-spot').append(nextPage);
             } if (monsterArray.previous) {
                 // console.log('previous found')
-                var prevPage = $('<a>').addClass('pag-button').attr('id', 'prev-button').text('Previous Results').attr('href', '#').attr('data-request', monsterArray.previous);
+                var prevPage = $('<a>').addClass('pag-button').attr('id', 'prev-button').text('Previous Results').attr('href', '#top-display').attr('data-request', monsterArray.previous);
                 $('#pag-spot').append(prevPage);
             }
         }
@@ -54,10 +54,9 @@ function populate() {
     monstListEl.empty();
     for (var i = 0; i < monsterArray.results.length; i++) {
         var thisMonster = monsterArray.results[i];
-        var monsterCard = $('<div>').addClass('monsterCard selectableMonster');
         // monsterCard.attr("class", "selectableMonster" ) //Given an ID for on click event
         // var innerDiv = $('<div>').addClass('innerDiv');
-        var monsterCard = $('<div>').addClass(`monsterCard ${thisMonster.type}Type`);
+        var monsterCard = $('<div>').addClass(`monsterCard selectableMonster ${thisMonster.type}-type`).attr('data-name', thisMonster.name);
         var monsterName = $('<h4>').addClass('monsterName').text(thisMonster.name);
         var monsterSize = $('<p>').addClass('monsterSize').text(`${thisMonster.size} `);
         var monsterType = $('<span>').addClass('monsterType').text(thisMonster.type);
@@ -100,7 +99,6 @@ searchBtn.on('click', function() {
     var paramVar = crVar.val();
     var requestUrl = 'https://api.open5e.com/monsters/?challenge_rating=' + paramVar;
     goGet(requestUrl);
-    goGet();
 
 });
 
@@ -112,15 +110,37 @@ $(document).on("click", ".selectableMonster", function() {
 // dropdown menu
  $(document).foundation();
 
-
-
-// TODO: Make an init() function that populates the page from local storage when loaded.
-
-// We could also leverage local storage to allow people to store creatures they're interested in using. The cards could be made clickable, and clicking would store them in a list on the left column (below the search boxes). Those could be clicked off to remove them.
-
-// If we wanted to go really ham for some reason, we could add further query parameters that would allow people to filter by what sources they want. Since some of these sources are *really* weird, and the API returns the source of the material which can be filtered using "?document__slug=".
-
-
+ monstListEl.on("click", function(event) {
+     var nameOfMonster = ($(event.target).text())
+     console.log(nameOfMonster);
+     if(!searchedMonsterArray.includes(nameOfMonster)) {
+         searchedMonsterArray.push(nameOfMonster);
+         var searchedMonster = $("<li>");
+         searchedMonster.addClass("list-group-item")
+         searchedMonster.text(nameOfMonster);
+         $("#searchHistory").append(searchedMonster);
+     }
+ 
+     localStorage.setItem("Monster-Name", JSON.stringify(searchedMonsterArray));
+ })
+ 
+ 
+ // var listItem = $(this).text(); //Probably a problem here --
+ // populate(listItem);
+ 
+ 
+ // function init() {
+ //     var searchedMonsterArray = JSON.parse(localStorage.getItem(searchedRatingArray))
+     
+ //     }
+ // }
+ // init();
+ 
+ // TODO: Make an init() function that populates the page from local storage when loaded.
+ 
+ // We could also leverage local storage to allow people to store creatures they're interested in using. The cards could be made clickable, and clicking would store them in a list on the left column (below the search boxes). Those could be clicked off to remove them.
+ 
+ // If we wanted to go really ham for some reason, we could add further query parameters that would allow people to filter by what sources they want. Since some of these sources are *really* weird, and the API returns the source of the material which can be filtered using "?document__slug=".
 
 
 // function nextFetch() {
