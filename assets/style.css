@@ -54,6 +54,13 @@
     border-radius: 6px;
 }
 
+
+.drop, li {
+ background: #0a0a0a;
+ text-decoration: underline;
+}
+
+
 .monsterCard h4 {
     font-weight: 600;
 }
@@ -136,3 +143,4 @@
     background: rgb(21,30,33);
     background: radial-gradient(circle, rgba(21,30,33,1) 0%, rgba(88,88,88,1) 100%);
 }
+
