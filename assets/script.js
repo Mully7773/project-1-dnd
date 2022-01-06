@@ -28,8 +28,8 @@ function goGet() {
         } else {
             console.log("bad request the second");
         } if (data.next || data.previous) {
-            var nextPage = $('<a>').addClass('pag-button next-button').text('Next Results').attr('href', '#');
-            var prevPage = $('<a>').addClass('pag-button prev-button').text('Previous Results').attr('href', '#');
+            var nextPage = $('<a>').addClass('pag-button').attr('id', 'next-button').text('Next Results').attr('href', '#').attr('data-request', monsterArray.next);
+            var prevPage = $('<a>').addClass('pag-button prev-button').text('Previous Results').attr('href', '#').attr('data-request', monsterArray.previous);;
             var navDiv = $('<div>').attr('id', 'nav-div');
             if (data.next) {
                 navDiv.append(nextPage);
@@ -40,6 +40,8 @@ function goGet() {
         }
     })
 }
+
+// navDiv.on('click', $('.pag-button'))
 
 // If we want, we can make the <a> elements also buttons.
 
@@ -101,8 +103,10 @@ searchBtn.on('click', function() {
     goGet();
 });
 
+// dropdown menu
+ $(document).foundation();
 
-// TODO: Add a second API request to get the next page's worth of data if result returns >50.
+
 
 // TODO: Make an init() function that populates the page from local storage when loaded.
 
