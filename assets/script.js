@@ -5,10 +5,7 @@ var monsterArray = [];
 var searchedMonsterArray = [];
 var acceptedClasses = ['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'swarm', 'undead'];
 
-var monsterHistory = [];
-if (localStorage.getItem("monsters")) {
-    monsterHistory = (localStorage.getItem("monsters"))
-}
+
 
 
 
