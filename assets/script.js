@@ -149,6 +149,37 @@ $('#search-history').on('click', '.list-group-item', function(event) {
 });
 
 
+monstListEl.on("click", '.monsterCard', function(event) {
+    var nameOfMonster = ($(event.target).attr('data-name'))
+    console.log(nameOfMonster);
+    if(!searchedMonsterArray.includes(nameOfMonster)) {
+        searchedMonsterArray.push(nameOfMonster);
+        var searchedMonster = $("<li>");
+        searchedMonster.addClass("list-group-item")
+        searchedMonster.text(nameOfMonster);
+        $("#searchHistory").append(searchedMonster);
+    }
+    localStorage.setItem("Monster-Name", JSON.stringify(searchedMonsterArray));
+})
+// var listItem = $(this).text(); //Probably a problem here --
+// populate(listItem);
+function init() {
+    console.log("hello")
+    searchedMonsterArray = JSON.parse(localStorage.getItem("Monster-Name"))
+    // console.log(searchedMonsterArr);
+    for (var i = 0; i < searchedMonsterArray.length; i++) {
+        var localMonster = searchedMonsterArray[i]
+        var searchedMonster = $("<li>");
+        searchedMonster.addClass("list-group-item").text(localMonster);
+        $("#searchHistory").append(searchedMonster);
+    //  searchedMonsterArr.addClass("list-group-item")
+    //  if (searchedMonsterArr !== null) {
+    //      var lastSearchedIndex = searchedMonsterArr.length - 1;
+    //      var lastSearchedMonster = searchedMonsterArr[lastSearchedIndex];   
+    //  }
+     }
+ }
+ init();
 //   monstListEl.on('click', '.monsterCard', function(event) {
 //       var nameOfMonster = ($(event.target).text())
 //       console.log(nameOfMonster);
