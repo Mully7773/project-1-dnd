@@ -10,6 +10,7 @@ var fetchStatus = "";
 
 function goGet(requestUrl) {
     $('#pag-spot').empty();
+    // This works but is now giving a weird error.
     fetch(requestUrl)
     .then(function (response) {
         // Conditionals (and fetchStatus variable) unnecessary if using dropdown menu selection.
@@ -29,18 +30,15 @@ function goGet(requestUrl) {
         } else {
             console.log("bad request the second");
         } if (monsterArray.next || monsterArray.previous) {
-            var navDiv = $('<div>').attr('id', 'nav-div').html(nextPage);
             if (monsterArray.next) {
-                console.log('next found')
+                // console.log('next found')
                 var nextPage = $('<a>').addClass('pag-button').attr('id', 'next-button').text('Next Results').attr('href', '#').attr('data-request', monsterArray.next);
-                navDiv.append(nextPage);
+                $('#pag-spot').append(nextPage);
             } if (monsterArray.previous) {
-                console.log('previous found')
+                // console.log('previous found')
                 var prevPage = $('<a>').addClass('pag-button').attr('id', 'prev-button').text('Previous Results').attr('href', '#').attr('data-request', monsterArray.previous);
-                var navDiv = $('<div>').attr('id', 'nav-div');
-                navDiv.append(prevPage);
+                $('#pag-spot').append(prevPage);
             }
-            $('#pag-spot').append(navDiv);
         }
     })
 };
