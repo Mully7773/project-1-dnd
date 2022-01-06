@@ -2,7 +2,9 @@ var searchBtn = $('#searchBtn');
 var crVar = $('#crEnter');
 var monstListEl = $('#monster-list');
 var monsterArray = [];
+var searchedMonsterArray = [];
 var acceptedClasses = ['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'swarm', 'undead'];
+
 
 var fetchStatus = "";
 
@@ -35,6 +37,9 @@ function populate() {
     monstListEl.empty();
     for (var i = 0; i < monsterArray.results.length; i++) {
         var thisMonster = monsterArray.results[i];
+        var monsterCard = $('<div>').addClass('monsterCard selectableMonster');
+        // monsterCard.attr("class", "selectableMonster" ) //Given an ID for on click event
+        // var innerDiv = $('<div>').addClass('innerDiv');
         var monsterCard = $('<div>').addClass(`monsterCard ${thisMonster.type}Type`);
         var monsterName = $('<h4>').addClass('monsterName').text(thisMonster.name);
         var monsterSize = $('<p>').addClass('monsterSize').text(`${thisMonster.size} `);
@@ -76,12 +81,46 @@ function populate() {
 
 searchBtn.on('click', function() {
     goGet();
+
+});
+
+$(document).on("click", ".selectableMonster", function() { 
+  
+    console.log("hello")
 });
 
 // dropdown menu
  $(document).foundation();
 
 
+
+monstListEl.on("click", function(event) {
+    var nameOfMonster = ($(event.target).text())
+    console.log(nameOfMonster);
+    if(!searchedMonsterArray.includes(nameOfMonster)) {
+        searchedMonsterArray.push(nameOfMonster);
+        var searchedMonster = $("<li>");
+        searchedMonster.addClass("list-group-item")
+        searchedMonster.text(nameOfMonster);
+        $("#searchHistory").append(searchedMonster);
+    }
+
+    localStorage.setItem("Monster-Name", JSON.stringify(searchedMonsterArray));
+})
+
+
+// var listItem = $(this).text(); //Probably a problem here --
+// populate(listItem);
+
+
+
+
+// function init() {
+//     var searchedMonsterArray = JSON.parse(localStorage.getItem(searchedRatingArray))
+    
+//     }
+// }
+// init();
 
 // TODO: Add a second API request to get the next page's worth of data if result returns >50.
 
