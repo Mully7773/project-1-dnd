@@ -129,34 +129,6 @@ $('#search-history').on('click', '.list-group-item', function(event) {
     localStorage.setItem("Monster-Name", JSON.stringify(searchedMonsterArray));
 
 });
-
-
-//   monstListEl.on('click', '.monsterCard', function(event) {
-//       var nameOfMonster = ($(event.target).text())
-//       console.log(nameOfMonster);
-//       if(!searchedMonsterArray.includes(nameOfMonster)) {
-//           searchedMonsterArray.push(nameOfMonster);
-//           var searchedMonster = $("<li>");
-//           searchedMonster.addClass("list-group-item")
-//           searchedMonster.text(nameOfMonster);
-//           $("#searchHistory").append(searchedMonster);
-//       }
-  
-//       localStorage.setItem("Monster-Name", JSON.stringify(searchedMonsterArray));
-      
-//   });
- 
- 
- // var listItem = $(this).text(); //Probably a problem here --
- // populate(listItem);
- 
- 
- // function init() {
- //     var searchedMonsterArray = JSON.parse(localStorage.getItem(searchedRatingArray))
- 
- //     }
- // }
- // init();
  
  // TODO: Make an init() function that populates the page from local storage when loaded.
  
@@ -164,3 +136,14 @@ $('#search-history').on('click', '.list-group-item', function(event) {
  
  // If we wanted to go really ham for some reason, we could add further query parameters that would allow people to filter by what sources they want. Since some of these sources are *really* weird, and the API returns the source of the material which can be filtered using "?document__slug=".
  
+
+ function callStorage() {
+    console.log("hello");
+    searchedMonsterArray = JSON.parse(localStorage.getItem("Monster-Name"))||[]
+    for (var i = 0; i < searchedMonsterArray.length; i++) {
+        var localMonster = searchedMonsterArray[i];
+        var searchedMonster = $("<li>").addClass("list-group-item").text(localMonster);
+        $("#search-history").append(searchedMonster);
+     }
+ }
+ callStorage();
