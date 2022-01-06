@@ -38,6 +38,7 @@ function populate() {
     for (var i = 0; i < monsterArray.results.length; i++) {
         var thisMonster = monsterArray.results[i];
         var monsterCard = $('<div>').addClass('monsterCard');
+        monsterCard.attr("id", "selectableMonster" ) //Given an ID for on click event
         // var innerDiv = $('<div>').addClass('innerDiv');
         var monsterName = $('<h4>').addClass('monsterName').text(thisMonster.name);
         var monsterType = $('<p>').addClass('monsterType').text(thisMonster.type);
@@ -52,8 +53,8 @@ function populate() {
 
 searchBtn.on('click', function() {
     goGet();
+    
     var level = crVar.val();
-    // goGet(level)
     if(!searchedRatingArray.includes(level)) {
         searchedRatingArray.push(level);
         var searchedRating = $("<li>");
@@ -63,33 +64,24 @@ searchBtn.on('click', function() {
     };
 
     localStorage.setItem("challenge-rating", JSON.stringify(searchedRatingArray));
-    // save();
+   
 });
 
-$(document).on("click", ".list-group-item", function() {
+
+$(document).on("click", ".list-group-item", function() { 
     var listItem = $(this).text();
-    goGet(listItem);
-    populate(listItem)
+    populate(listItem);
     console.log("hello")
-    
-    
+   
+
 });
 
 
 
 
-function save() {
-    let level = crVar.val();
-    localStorage.setItem("challenge-rating", level);
+// function init() {
+//     var searchedMonsterArray = JSON.parse(localStorage.getItem(searchedRatingArray))
     
-}
-
-function retrieve() {
-    window.localStorage.getItem("challenge-rating");
-}
-
-function init() {
-    console.log("hello")
-    retrieve();
-}
-init();
+//     }
+// }
+// init();
