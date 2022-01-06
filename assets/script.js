@@ -27,15 +27,32 @@ function goGet() {
             populate();
         } else {
             console.log("bad request the second");
-        } if (data.next) {
-            paginate();
+        } if (data.next || data.previous) {
+            var nextPage = $('<a>').addClass('pag-button next-button').text('Next Results').attr('href', '#');
+            var prevPage = $('<a>').addClass('pag-button prev-button').text('Previous Results').attr('href', '#');
+            var navDiv = $('<div>').attr('id', 'nav-div');
+            if (data.next) {
+                navDiv.append(nextPage);
+            } if (data.previous) {
+                navDiv.append(prevPage);
+            }
+            $('#results-container').append(navDiv);
         }
     })
 }
 
-function paginate () {
-    var nextPage = $('<button>').addClass('next-button');
-}
+// If we want, we can make the <a> elements also buttons.
+
+// function paginate () {
+//     var nextPage = $('<button>').addClass('pag-button next-button').text('Next Results');
+//     var prevPage = $('<button>').addClass('pag-button prev-button').text('Previous Results');
+//     var navDiv = $('<div>').addClass('nav-div');
+//     if (data.next) {
+//         navDiv.append(nextPage);
+//     } if (data.previous) {
+//         navDiv.append(prevPage);
+//     }
+// }
 
 function populate() {
     monstListEl.empty();
