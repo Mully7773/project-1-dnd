@@ -48,3 +48,28 @@
     border-width: 1px;
     border-radius: 6px;
 }
+
+  
+  .list-group-item:hover, .list-group-item:focus {
+    /* background-color: #30c071; */
+    background-color: #acb9db;
+    
+  }
+  
+  .list-group {
+    margin-bottom: 1rem;
+    border: 1px solid #e6e6e6;
+    /* overflow: hidden; */
+    color: #0a0a0a;
+    list-style: none;
+    width: auto;
+  }
+  
+  
+  .list-group-item {
+    /* text-align: center; */
+    padding: 2px;
+    border-bottom: 1px solid #e6e6e6;
+  }
+  
+ 

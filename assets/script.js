@@ -2,6 +2,7 @@ var searchBtn = $('#searchBtn');
 var crVar = $('#crEnter');
 var monstListEl = $('#monsterList');
 var monsterArray = [];
+var searchedRatingArray = [];
 
 var fetchStatus = "";
 
@@ -51,4 +52,44 @@ function populate() {
 
 searchBtn.on('click', function() {
     goGet();
+    var level = crVar.val();
+    // goGet(level)
+    if(!searchedRatingArray.includes(level)) {
+        searchedRatingArray.push(level);
+        var searchedRating = $("<li>");
+        searchedRating.addClass("list-group-item");
+        searchedRating.text(level);
+        $("#searchHistory").append(searchedRating);
+    };
+
+    localStorage.setItem("challenge-rating", JSON.stringify(searchedRatingArray));
+    // save();
 });
+
+$(document).on("click", ".list-group-item", function() {
+    var listItem = $(this).text();
+    goGet(listItem);
+    populate(listItem)
+    console.log("hello")
+    
+    
+});
+
+
+
+
+function save() {
+    let level = crVar.val();
+    localStorage.setItem("challenge-rating", level);
+    
+}
+
+function retrieve() {
+    window.localStorage.getItem("challenge-rating");
+}
+
+function init() {
+    console.log("hello")
+    retrieve();
+}
+init();
