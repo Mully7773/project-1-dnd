@@ -2,7 +2,7 @@ var searchBtn = $('#searchBtn');
 var crVar = $('#crEnter');
 var monstListEl = $('#monster-list');
 var monsterArray = [];
-var searchedRatingArray = [];
+var searchedMonsterArray = [];
 var acceptedClasses = ['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'swarm', 'undead'];
 
 
@@ -81,36 +81,32 @@ function populate() {
 
 searchBtn.on('click', function() {
     goGet();
-    
-    // var level = crVar.val();
-    // var creatureName = $(section.div.selectableMonster.children());
-    // console.log(creatureName);
-    // if(!searchedRatingArray.includes(level)) {
-    //     searchedRatingArray.push(level);
-    //     var searchedRating = $("<li>");
-    //     searchedRating.addClass("list-group-item");
-    //     searchedRating.text(level);
-    //     $("#searchHistory").append(searchedRating);
-    // };
-    
-    // localStorage.setItem("challenge-rating", JSON.stringify(searchedRatingArray));
-   
+
 });
-
-var creatureName = $("section.results-screen".children());
-    console.log(creatureName);
-
-//     var creatureName = $(selectableMonster.children());
-//     console.log(creatureName);
 
 $(document).on("click", ".selectableMonster", function() { 
-    
-    // var listItem = $(this).text(); //Probably a problem here --
-    // populate(listItem);
+  
     console.log("hello")
-   
-
 });
+
+
+monstListEl.on("click", function(event) {
+    var nameOfMonster = ($(event.target).text())
+    console.log(nameOfMonster);
+    if(!searchedMonsterArray.includes(nameOfMonster)) {
+        searchedMonsterArray.push(nameOfMonster);
+        var searchedMonster = $("<li>");
+        searchedMonster.addClass("list-group-item")
+        searchedMonster.text(nameOfMonster);
+        $("#searchHistory").append(searchedMonster);
+    }
+
+    localStorage.setItem("Monster-Name", JSON.stringify(searchedMonsterArray));
+})
+
+
+// var listItem = $(this).text(); //Probably a problem here --
+// populate(listItem);
 
 
 
