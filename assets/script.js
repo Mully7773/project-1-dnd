@@ -136,7 +136,6 @@ $('#search-history').on('click', '.list-group-item', function(event) {
  
  // If we wanted to go really ham for some reason, we could add further query parameters that would allow people to filter by what sources they want. Since some of these sources are *really* weird, and the API returns the source of the material which can be filtered using "?document__slug=".
  
-
  function callStorage() {
     console.log("hello");
     searchedMonsterArray = JSON.parse(localStorage.getItem("Monster-Name"))||[]
