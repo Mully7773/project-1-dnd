@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -12,9 +12,10 @@
     <!-- Foundation CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
         crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="css/foundation.css" /> -->
     <!-- Personal Stylesheet -->
     <link rel="stylesheet" href="assets/style.css">
-    
+
 </head>
 
 <body>
@@ -45,9 +46,25 @@
                 </div>
             </div>
             <div class="title-bar-right">
-                <button class="menu-icon" type="button"></button>
+                <ul class="dropdown menu align-right menu-icon" id="drop" data-dropdown-menu>
+                    <li class="is-dropdown-submenu-parent">
+                      <a href="#"></a>
+                      <ul class="menu">
+                        <li><a href="https://open5e.com/">Offical DnD Api Page</a></li>
+                        <li><a href="https://github.com/the-wake/project-1-dnd">Github</a></li>
+                        <li><a href="https://spoonacular.com/food-api/docs">Spoonacular Page</a></li>
+                      </ul>
+                    </li>
+                    
+                  </ul>
+                
+                  
+
+                      
             </div>
+
         </div>
+
         <!-- <ul class="menu">
                 <li class="menu-text"></li>
             </ul> -->
@@ -66,12 +83,14 @@
     </div>
 
     <main>
-    
+
         <div id="searchBars">
 
             <form id="monsterForm">
                 <div class="callout secondary">
-                    <label for="cr"><h5>Choose Challenge Rating:</h5></label>
+                    <label for="cr">
+                        <h5>Choose Challenge Rating:</h5>
+                    </label>
                     <select id="crEnter" name="Challenge Rating">
                         <option value="0">0</option>
                         <option value="1/8">1/8</option>
@@ -114,14 +133,15 @@
                 <div class="callout secondary">
                     <!-- <button type="submit" class="subBtn button">Submit</button>
                     <input type="text"  id="citySearch"> -->
-                    <label for="snack"><h5>Search a snack!!</h5></label>
-                    <input type="text"  id="foodSearch">
-                    <button type="button" class="subBtn button">Submit</button>
-                    <img id="img1" ></img>
+                    <label for="snack">
+                        <h5>Search a snack!!</h5>
+                    </label>
+                    <input type="text" id="foodSearch" placeholder="ADD API WHEN NEEDED">
+                    <button type="button" class="subBtn button">Submit</button><br>
+                    <img id="img1"></img>
                     <a href="#">It's dangerous to go alone, take this.</a>
                 </div>
             </form>
-
             
                 <div class="callout secondary">
                     <h5 class="text-center">Search History</h5>
@@ -129,7 +149,6 @@
                       <!-- Append li here -->
                     </ul>
                 </div>
-            
             
         </div>
 
@@ -159,7 +178,7 @@
         crossorigin="anonymous"></script>
     <script src="assets/script.js"></script>
     <script src="assets/secondapi.js"></script>
-    <footer></footer>
+    <footer>  </footer>
 </body>
 
 </html>
