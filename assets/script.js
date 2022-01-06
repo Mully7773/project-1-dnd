@@ -12,7 +12,7 @@ if (localStorage.getItem("monsters")) {
 
 
 
->>>>>>> main
+
 var fetchStatus = "";
 
 function goGet() {
@@ -100,19 +100,7 @@ $(document).on("click", ".selectableMonster", function() {
 // dropdown menu
  $(document).foundation();
 
- monstListEl.on("click", function(event){
-    // $("div").html("Triggered by a " + event.target.nodeName + " element.");
-    var nameOfMonster = ($(event.target).text())
-    // populate(event.target.textContent.)
-    console.log(nameOfMonster)
-    
-    // localStorage.setItem("monsters", nameOfMonster)
 
-    monsterHistory.push(nameOfMonster);
-    //  var selectedMonster = new Set(monsterHistory);
-    //  monsterHistory = Array.from(selectedMonster)
-    // localStorage.setItem("monsters", JSON.stringify(monsterHistory));
-  });
 
 monstListEl.on("click", function(event) {
     var nameOfMonster = ($(event.target).text())

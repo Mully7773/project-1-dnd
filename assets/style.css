@@ -83,10 +83,10 @@
   }
 
 
-.drop, li {
+/* .drop li {
  background: #0a0a0a;
  text-decoration: underline;
-}
+} */
 
 .menu  li a {
     color: rgb(112, 3, 214);
@@ -98,9 +98,9 @@
 .menu li a:active {
     color: white;
 }
-=======
 
->>>>>>> main
+
+
 .monsterCard h4 {
     font-weight: 600;
 }
