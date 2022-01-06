@@ -85,80 +85,96 @@
     font-weight: 600;
 }
 
-.aberrationType {
+#pag-spot {
+    display: block;
+}
+
+#next-button {
+    float: right;
+    margin-right: 90px;
+}
+
+#prev-button {
+    float: left;
+    margin-left: 90px;
+}
+
+/* This alignment is pretty brute-forced and doesn't work great at small viewport sizes. */
+
+.aberration-type {
     background: rgb(130,172,203);
     background: radial-gradient(circle, rgba(130,172,203,1) 0%, rgba(178,187,194,1) 78%, rgba(191,191,191,1) 100%);
 }
 
-.beastType {
+.beast-type {
     background: rgb(236,236,236);
     background: radial-gradient(circle, rgba(236,236,236,1) 0%, rgba(199,178,129,1) 100%);
 }
 
-.celestialType {
+.celestial-type {
     background: rgb(245,255,140);
     background: radial-gradient(circle, rgba(245,255,140,1) 0%, rgba(248,196,86,1) 77%, rgba(250,169,62,1) 100%);
 }
 
-.constructType {
+.construct-type {
     background: rgb(205,209,212);
     background: radial-gradient(circle, rgba(205,209,212,1) 0%, rgba(119,119,119,1) 100%);
 }
 
-.dragonType {
+.dragon-type {
     background: rgb(70,52,52);
     background: linear-gradient(34deg, rgba(70,52,52,1) 0%, rgba(204,77,77,1) 42%, rgba(181,61,61,1) 100%);
 }
 
-.elementalType {
+.elemental-type {
     color: whitesmoke;
     background: rgb(65,116,186);
     background: radial-gradient(circle, rgba(65,116,186,1) 0%, rgba(170,33,33,1) 100%);
 }
 
-.feyType {
+.fey-type {
     background: rgb(145,207,242);
     background: linear-gradient(34deg, rgba(145,207,242,1) 0%, rgba(236,183,255,1) 100%);
 }
 
-.fiendType {
+.fiend-type {
     color: whitesmoke;
     background: rgb(45,45,45);
     background: radial-gradient(circle, rgba(45,45,45,1) 0%, rgba(58,32,32,1) 38%, rgba(91,0,0,1) 100%);
 }
 
-.giantType {
+.giant-type {
     background: rgb(162,168,168);
     background: linear-gradient(34deg, rgba(162,168,168,1) 0%, rgba(159,104,68,1) 100%);
 }
 
-.humanoidType {
+.humanoid-type {
     background: rgb(215,192,192);
     background: linear-gradient(34deg, rgba(215,192,192,1) 0%, rgba(223,224,213,1) 12%, rgba(221,223,215,1) 25%, rgba(219,226,221,1) 37%, rgba(210,218,219,1) 50%, rgba(218,222,227,1) 64%, rgba(212,211,219,1) 77%, rgba(219,212,219,1) 89%, rgba(221,214,214,1) 100%);
 }
 
-.monstrosityType {
+.monstrosity-type {
     color: whitesmoke;
     background: rgb(98,66,11);
     background: radial-gradient(circle, rgba(98,66,11,1) 0%, rgba(41,41,41,1) 100%);
 }
 
-.oozeType {
+.ooze-type {
     background: rgb(148,204,132);
     background: linear-gradient(34deg, rgba(148,204,132,1) 0%, rgba(136,136,136,1) 100%);
 }
 
-.plantType {
+.plant-type {
     background: rgb(116,205,91);
     background: linear-gradient(34deg, rgba(116,205,91,1) 0%, rgba(176,227,173,1) 100%);
 }
 
-.swarmType {
+.swarm-type {
     background: rgb(250,255,0);
     background: radial-gradient(circle, rgba(250,255,0,1) 0%, rgba(189,255,28,1) 100%);
 }
 
-.undeadType {
+.undead-type {
     color: whitesmoke;
     background: rgb(21,30,33);
     background: radial-gradient(circle, rgba(21,30,33,1) 0%, rgba(88,88,88,1) 100%);

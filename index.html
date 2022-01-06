@@ -45,6 +45,7 @@
                     <h1 class="title-bar-title">D&D Seekers</h1>
                 </div>
             </div>
+            
             <div class="title-bar-right">
                 <ul class="dropdown menu align-right menu-icon" id="drop" data-dropdown-menu>
                     <li class="is-dropdown-submenu-parent">
@@ -57,9 +58,6 @@
                     </li>
                     
                   </ul>
-                
-                  
-
                       
             </div>
 
@@ -153,13 +151,16 @@
         </div>
 
         <section class="results-screen row">
-            <div class="columns large-12 medium-12">
+            <div class="columns large-12 medium-12" id="results-container">
                 <h3 id="top-display">Select a Challenge Rating to begin your search!</h3>
                 <div class="lead menu align-center" id="monster-list">
                     <!-- <div class="monsterCard"><div class="innerDiv">Results</div></div>
                     <div class="monsterCard"><div class="innerDiv">Results</div></div>
                     <div class="monsterCard"><div class="innerDiv">Results</div></div>
                     <div class="monsterCard"><div class="innerDiv">Results</div></div> -->
+                </div>
+                <div id="pag-spot">
+                    <!-- Populated when necessary via goGet -->
                 </div>
                 <br>
             </div>
