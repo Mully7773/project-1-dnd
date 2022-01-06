@@ -6,9 +6,8 @@ var acceptedClasses = ['aberration', 'beast', 'celestial', 'construct', 'dragon'
 
 var fetchStatus = "";
 
-function goGet() {
-    var paramVar = crVar.val();
-    var requestUrl = 'https://api.open5e.com/monsters/?challenge_rating=' + paramVar;
+function goGet(requestUrl) {
+    $('#pag-spot').empty();
     fetch(requestUrl)
     .then(function (response) {
         // Conditionals (and fetchStatus variable) unnecessary if using dropdown menu selection.
@@ -27,34 +26,29 @@ function goGet() {
             populate();
         } else {
             console.log("bad request the second");
-        } if (data.next || data.previous) {
-            var nextPage = $('<a>').addClass('pag-button').attr('id', 'next-button').text('Next Results').attr('href', '#').attr('data-request', monsterArray.next);
-            var prevPage = $('<a>').addClass('pag-button prev-button').text('Previous Results').attr('href', '#').attr('data-request', monsterArray.previous);;
-            var navDiv = $('<div>').attr('id', 'nav-div');
-            if (data.next) {
+        } if (monsterArray.next || monsterArray.previous) {
+            var navDiv = $('<div>').attr('id', 'nav-div').html(nextPage);
+            if (monsterArray.next) {
+                console.log('next found')
+                var nextPage = $('<a>').addClass('pag-button').attr('id', 'next-button').text('Next Results').attr('href', '#').attr('data-request', monsterArray.next);
                 navDiv.append(nextPage);
-            } if (data.previous) {
+            } if (monsterArray.previous) {
+                console.log('previous found')
+                var prevPage = $('<a>').addClass('pag-button').attr('id', 'prev-button').text('Previous Results').attr('href', '#').attr('data-request', monsterArray.previous);
+                var navDiv = $('<div>').attr('id', 'nav-div');
                 navDiv.append(prevPage);
             }
-            $('#results-container').append(navDiv);
+            $('#pag-spot').append(navDiv);
         }
     })
-}
-
-navDiv.on('click', $('.pag-button'))
+};
 
 // If we want, we can make the <a> elements also buttons.
 
-// function paginate () {
-//     var nextPage = $('<button>').addClass('pag-button next-button').text('Next Results');
-//     var prevPage = $('<button>').addClass('pag-button prev-button').text('Previous Results');
-//     var navDiv = $('<div>').addClass('nav-div');
-//     if (data.next) {
-//         navDiv.append(nextPage);
-//     } if (data.previous) {
-//         navDiv.append(prevPage);
-//     }
-// }
+$('#pag-spot').on('click', '.pag-button', function(event) {
+    goGet($(event.target).attr('data-request'))
+    console.log ($(event.target).attr('data-request'));
+});
 
 function populate() {
     monstListEl.empty();
@@ -100,7 +94,9 @@ function populate() {
 
 
 searchBtn.on('click', function() {
-    goGet();
+    var paramVar = crVar.val();
+    var requestUrl = 'https://api.open5e.com/monsters/?challenge_rating=' + paramVar;
+    goGet(requestUrl);
 });
 
 // dropdown menu
