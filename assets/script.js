@@ -5,19 +5,15 @@ var monsterArray = [];
 var searchedMonsterArray = [];
 var acceptedClasses = ['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'swarm', 'undead'];
 
-<<<<<<< HEAD
-=======
 
 
 
 
 
->>>>>>> main
 var fetchStatus = "";
 
 function goGet(requestUrl) {
     $('#pag-spot').empty();
-    // This works but is now giving a weird error.
     fetch(requestUrl)
     .then(function (response) {
         // Conditionals (and fetchStatus variable) unnecessary if using dropdown menu selection.
@@ -63,16 +59,15 @@ function populate() {
         var thisMonster = monsterArray.results[i];
         // monsterCard.attr("class", "selectableMonster" ) //Given an ID for on click event
         // var innerDiv = $('<div>').addClass('innerDiv');
-        var monsterCard = $('<div>').addClass(`monsterCard selectableMonster ${thisMonster.type}-type`).attr('data-name', thisMonster.name);
-        var monsterName = $('<h4>').addClass('monsterName').text(thisMonster.name);
-        var monsterSize = $('<p>').addClass('monsterSize').text(`${thisMonster.size} `);
-        var monsterType = $('<span>').addClass('monsterType').text(thisMonster.type);
+        var monsterCard = $('<div>').addClass(`monsterCard ${thisMonster.type}-type`).attr('data-name', thisMonster.name);
+        var monsterName = $('<h4>').addClass('monsterName').text(thisMonster.name).attr('data-name', thisMonster.name);
+        var monsterSize = $('<p>').addClass('monsterSize').text(`${thisMonster.size} `).attr('data-name', thisMonster.name);
+        var monsterType = $('<span>').addClass('monsterType').text(thisMonster.type).attr('data-name', thisMonster.name);
         typeCleaner();
         monsterCard.append(monsterName);
         monsterCard.append(monsterSize);
         monsterSize.append(monsterType);
         monstListEl.append(monsterCard);
-        
     }
 
     $("#top-display").text(`Challenge Rating: ${thisMonster.challenge_rating}`)
@@ -99,7 +94,6 @@ function populate() {
             }
         }
     }
-
 };
 
 
@@ -107,30 +101,51 @@ searchBtn.on('click', function() {
     var paramVar = crVar.val();
     var requestUrl = 'https://api.open5e.com/monsters/?challenge_rating=' + paramVar;
     goGet(requestUrl);
-
-});
-
-$(document).on("click", ".selectableMonster", function() { 
-  
-    console.log("hello")
 });
 
 // dropdown menu
  $(document).foundation();
 
- monstListEl.on("click", function(event) {
-     var nameOfMonster = ($(event.target).text())
-     console.log(nameOfMonster);
-     if(!searchedMonsterArray.includes(nameOfMonster)) {
-         searchedMonsterArray.push(nameOfMonster);
-         var searchedMonster = $("<li>");
-         searchedMonster.addClass("list-group-item")
-         searchedMonster.text(nameOfMonster);
-         $("#searchHistory").append(searchedMonster);
-     }
+// add monster to storage and list
+// also there's gotta be a better way of doing this than adding the same data-attribute to each element of the div.
+monstListEl.on('click', '.monsterCard', function(event) {
+    var nameOfMonster = ($(event.target).attr('data-name'));
+    console.log(nameOfMonster);
+    searchedMonsterArray.push(nameOfMonster);
+    var searchedMonster = $("<li>");
+    searchedMonster.addClass("list-group-item").text(nameOfMonster).attr('data-name', nameOfMonster);
+    $("#search-history").append(searchedMonster);
  
-     localStorage.setItem("Monster-Name", JSON.stringify(searchedMonsterArray));
- })
+    localStorage.setItem("Monster-Name", JSON.stringify(searchedMonsterArray));
+
+});
+
+$('#search-history').on('click', '.list-group-item', function(event) {
+    event.target.remove();
+    var remove = $(event.target).attr('data-name')
+    console.log(`${remove} sakujo!`);
+    searchedMonsterArray.splice($.inArray(remove, searchedMonsterArray),1)
+    console.log(searchedMonsterArray);
+
+    localStorage.setItem("Monster-Name", JSON.stringify(searchedMonsterArray));
+    
+});
+
+
+//   monstListEl.on('click', '.monsterCard', function(event) {
+//       var nameOfMonster = ($(event.target).text())
+//       console.log(nameOfMonster);
+//       if(!searchedMonsterArray.includes(nameOfMonster)) {
+//           searchedMonsterArray.push(nameOfMonster);
+//           var searchedMonster = $("<li>");
+//           searchedMonster.addClass("list-group-item")
+//           searchedMonster.text(nameOfMonster);
+//           $("#searchHistory").append(searchedMonster);
+//       }
+  
+//       localStorage.setItem("Monster-Name", JSON.stringify(searchedMonsterArray));
+      
+//   });
  
  
  // var listItem = $(this).text(); //Probably a problem here --
@@ -139,7 +154,7 @@ $(document).on("click", ".selectableMonster", function() {
  
  // function init() {
  //     var searchedMonsterArray = JSON.parse(localStorage.getItem(searchedRatingArray))
-     
+ 
  //     }
  // }
  // init();
