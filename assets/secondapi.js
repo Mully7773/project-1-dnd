@@ -32,7 +32,7 @@ function randomFood(foodSearch) {
         
         
 }
-randomFood()
+
 function getInputValue(e) {
     e.preventDefault()
     // Selecting the input element and get its value 
