@@ -57,24 +57,9 @@
 
 .drop, li {
  background: #0a0a0a;
+ text-decoration: underline;
 }
 
-.feet {
-    border: 3px solid black;
-    margin-top: 46%;
-    /* margin: auto; */
-    background-color:#0a0a0a;
-   /* height: 20%; */
-   color: white;
-   text-align: center;
-   
-   /* height: -10vh; */
-   /* max-height: calc(10vh - 400px); */
-}
-#resource, #github {
-font-size: 30px;
-text-decoration: underline;
-}
 
 .monsterCard h4 {
     font-weight: 600;
