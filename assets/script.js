@@ -6,6 +6,10 @@ var searchedMonsterArray = [];
 var acceptedClasses = ['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'swarm', 'undead'];
 
 
+
+
+
+
 var fetchStatus = "";
 
 function goGet(requestUrl) {
@@ -65,6 +69,7 @@ function populate() {
         monsterCard.append(monsterSize);
         monsterSize.append(monsterType);
         monstListEl.append(monsterCard);
+        
     }
 
     $("#top-display").text(`Challenge Rating: ${thisMonster.challenge_rating}`)
