@@ -1,8 +1,10 @@
 var searchBtn = $('#searchBtn');
 var crVar = $('#crEnter');
-var monstListEl = $('#monsterList');
+var monstListEl = $('#monster-list');
 var monsterArray = [];
 var searchedRatingArray = [];
+var acceptedClasses = ['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'swarm', 'undead'];
+
 
 var fetchStatus = "";
 
@@ -31,8 +33,6 @@ function goGet() {
     })
 }
 
-// TODO: Add a second API request to get the next page's worth of data if result returns >50.
-
 function populate() {
     monstListEl.empty();
     for (var i = 0; i < monsterArray.results.length; i++) {
@@ -40,16 +40,44 @@ function populate() {
         var monsterCard = $('<div>').addClass('monsterCard selectableMonster');
         // monsterCard.attr("class", "selectableMonster" ) //Given an ID for on click event
         // var innerDiv = $('<div>').addClass('innerDiv');
+        var monsterCard = $('<div>').addClass(`monsterCard ${thisMonster.type}Type`);
         var monsterName = $('<h4>').addClass('monsterName').text(thisMonster.name);
-        var monsterType = $('<p>').addClass('monsterType').text(thisMonster.type);
-        console.log(thisMonster);
+        var monsterSize = $('<p>').addClass('monsterSize').text(`${thisMonster.size} `);
+        var monsterType = $('<span>').addClass('monsterType').text(thisMonster.type);
+        typeCleaner();
         monsterCard.append(monsterName);
-        monsterCard.append(monsterType);
+        monsterCard.append(monsterSize);
+        monsterSize.append(monsterType);
         monstListEl.append(monsterCard);
     }
+
+    $("#top-display").text(`Challenge Rating: ${thisMonster.challenge_rating}`)
+
+    // This looks more complicated than it is. There are a few items in the API that return aberrant creature types, so this looks for them and reconciles them with the accepted types.
+    function typeCleaner() {
+        // console.log(thisMonster.type);
+        if (!acceptedClasses.includes(thisMonster.type)) {
+            console.log(`type error: ${thisMonster.name} = ${thisMonster.type}`)
+            // humanoid checker
+            if (thisMonster.type.includes('human') || thisMonster.type.includes('Human')) {
+                console.log(`humanoid discovered: ${thisMonster.name}`);
+                monsterCard.attr("class", "monsterCard humanoidType");
+            }
+            // beast checker
+            if (thisMonster.type.includes('beast') || thisMonster.type.includes('Beast')) {
+                console.log(`beast discovered: ${thisMonster.name}`);
+                monsterCard.attr("class", "monsterCard beastType");
+            }
+            // swarm checker
+            if (thisMonster.type.includes('swarm') || thisMonster.type.includes('Swarm')) {
+                console.log(`swarm discovered: ${thisMonster.name}`);
+                monsterCard.attr("class", "monsterCard swarmType");
+            }
+        }
+    }
+
 };
 
-// TODO: Add script to apply class based on type, and add CSS.
 
 searchBtn.on('click', function() {
     goGet();
@@ -93,3 +121,11 @@ $(document).on("click", ".selectableMonster", function() {
 //     }
 // }
 // init();
+
+// TODO: Add a second API request to get the next page's worth of data if result returns >50.
+
+// TODO: Make an init() function that populates the page from local storage when loaded.
+
+// We could also leverage local storage to allow people to store creatures they're interested in using. The cards could be made clickable, and clicking would store them in a list on the left column (below the search boxes). Those could be clicked off to remove them.
+
+// If we wanted to go really ham for some reason, we could add further query parameters that would allow people to filter by what sources they want. Since some of these sources are *really* weird, and the API returns the source of the material which can be filtered using "?document__slug=".
