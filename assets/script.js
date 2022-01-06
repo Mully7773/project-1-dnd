@@ -37,8 +37,8 @@ function populate() {
     monstListEl.empty();
     for (var i = 0; i < monsterArray.results.length; i++) {
         var thisMonster = monsterArray.results[i];
-        var monsterCard = $('<div>').addClass('monsterCard');
-        monsterCard.attr("id", "selectableMonster" ) //Given an ID for on click event
+        var monsterCard = $('<div>').addClass('monsterCard selectableMonster');
+        // monsterCard.attr("class", "selectableMonster" ) //Given an ID for on click event
         // var innerDiv = $('<div>').addClass('innerDiv');
         var monsterName = $('<h4>').addClass('monsterName').text(thisMonster.name);
         var monsterType = $('<p>').addClass('monsterType').text(thisMonster.type);
@@ -54,23 +54,24 @@ function populate() {
 searchBtn.on('click', function() {
     goGet();
     
-    var level = crVar.val();
-    if(!searchedRatingArray.includes(level)) {
-        searchedRatingArray.push(level);
-        var searchedRating = $("<li>");
-        searchedRating.addClass("list-group-item");
-        searchedRating.text(level);
-        $("#searchHistory").append(searchedRating);
-    };
+    // var level = crVar.val();
 
-    localStorage.setItem("challenge-rating", JSON.stringify(searchedRatingArray));
+    // if(!searchedRatingArray.includes(level)) {
+    //     searchedRatingArray.push(level);
+    //     var searchedRating = $("<li>");
+    //     searchedRating.addClass("list-group-item");
+    //     searchedRating.text(level);
+    //     $("#searchHistory").append(searchedRating);
+    // };
+    
+    // localStorage.setItem("challenge-rating", JSON.stringify(searchedRatingArray));
    
 });
 
 
-$(document).on("click", ".list-group-item", function() { 
-    var listItem = $(this).text();
-    populate(listItem);
+$(document).on("click", ".selectableMonster", function() { 
+    // var listItem = $(this).text(); //Probably a problem here --
+    // populate(listItem);
     console.log("hello")
    
 
