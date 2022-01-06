@@ -76,20 +76,20 @@ function populate() {
     function typeCleaner() {
         // console.log(thisMonster.type);
         if (!acceptedClasses.includes(thisMonster.type)) {
-            console.log(`type error: ${thisMonster.name} = ${thisMonster.type}`)
+            // console.log(`type error: ${thisMonster.name} = ${thisMonster.type}`)
             // humanoid checker
             if (thisMonster.type.includes('human') || thisMonster.type.includes('Human')) {
-                console.log(`humanoid discovered: ${thisMonster.name}`);
+                // console.log(`humanoid discovered: ${thisMonster.name}`);
                 monsterCard.attr("class", "monsterCard humanoidType");
             }
             // beast checker
             if (thisMonster.type.includes('beast') || thisMonster.type.includes('Beast')) {
-                console.log(`beast discovered: ${thisMonster.name}`);
+                // console.log(`beast discovered: ${thisMonster.name}`);
                 monsterCard.attr("class", "monsterCard beastType");
             }
             // swarm checker
             if (thisMonster.type.includes('swarm') || thisMonster.type.includes('Swarm')) {
-                console.log(`swarm discovered: ${thisMonster.name}`);
+                // console.log(`swarm discovered: ${thisMonster.name}`);
                 monsterCard.attr("class", "monsterCard swarmType");
             }
         }
@@ -146,7 +146,9 @@ function callStorage() {
  callStorage();
 
 
-// TODO: Append "x" after items in the storage list when hovered
+// TODO: Append "x" after items in the storage list when hovered.
+
+// TODO: Stretch goal: Add the appropriate class to the saved monsters (so they get the gradients).
  
  // If we wanted to go really ham for some reason, we could add further query parameters that would allow people to filter by what sources they want. Since some of these sources are *really* weird, and the API returns the source of the material which can be filtered using "?document__slug=".
  
