@@ -41,7 +41,7 @@ function goGet() {
     })
 }
 
-// navDiv.on('click', $('.pag-button'))
+navDiv.on('click', $('.pag-button'))
 
 // If we want, we can make the <a> elements also buttons.
 
