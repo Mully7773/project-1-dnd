@@ -55,14 +55,12 @@
 }
 
 
-.menu.align-right li {
-    height: 44px;
-}
+
 
   
   .list-group-item:hover, .list-group-item:focus {
     /* background-color: #30c071; */
-    background-color: #acb9db;
+    text-decoration: underline;
     
   }
   
@@ -83,16 +81,20 @@
   }
 
 
-/* .drop li {
- background: #0a0a0a;
- text-decoration: underline;
-} */
+.menu.align-right li {
+    height: 44px;
+}
 
+#backdrop {
+    background-color: #0a0a0a;
+    
+}
 .menu  li a {
     color: rgb(112, 3, 214);
     
+    
 }
-.menu li a:hover {
+#backdrop a:hover {
     color: rgb(3, 3, 152);
 }
 .menu li a:active {

@@ -10,8 +10,6 @@ function randomFood(foodSearch) {
                 return response.json();
             } else {
                 fetchStatus = "badFood";
-                
-
             }
         })
         .then(function (data) {
@@ -25,12 +23,7 @@ function randomFood(foodSearch) {
                 $("#img1").attr("src",  data.menuItems[0].image);
                 
             }
-            
-           
         })
-
-        
-        
 }
 
 function getInputValue(e) {
