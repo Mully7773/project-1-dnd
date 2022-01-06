@@ -27,8 +27,14 @@ function goGet() {
             populate();
         } else {
             console.log("bad request the second");
+        } if (data.next) {
+            paginate();
         }
     })
+}
+
+function paginate () {
+    var nextPage = $('<button>').addClass('next-button');
 }
 
 function populate() {
@@ -86,3 +92,12 @@ searchBtn.on('click', function() {
 // We could also leverage local storage to allow people to store creatures they're interested in using. The cards could be made clickable, and clicking would store them in a list on the left column (below the search boxes). Those could be clicked off to remove them.
 
 // If we wanted to go really ham for some reason, we could add further query parameters that would allow people to filter by what sources they want. Since some of these sources are *really* weird, and the API returns the source of the material which can be filtered using "?document__slug=".
+
+
+
+
+// function nextFetch() {
+//     console.log("next fetch");
+//     var nextUrl = 
+//     fetch(nextUrl)
+// }
