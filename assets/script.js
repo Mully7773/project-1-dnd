@@ -55,7 +55,8 @@ searchBtn.on('click', function() {
     goGet();
     
     // var level = crVar.val();
-
+    // var creatureName = $(section.div.selectableMonster.children());
+    // console.log(creatureName);
     // if(!searchedRatingArray.includes(level)) {
     //     searchedRatingArray.push(level);
     //     var searchedRating = $("<li>");
@@ -68,8 +69,14 @@ searchBtn.on('click', function() {
    
 });
 
+var creatureName = $("section.results-screen".children());
+    console.log(creatureName);
+
+//     var creatureName = $(selectableMonster.children());
+//     console.log(creatureName);
 
 $(document).on("click", ".selectableMonster", function() { 
+    
     // var listItem = $(this).text(); //Probably a problem here --
     // populate(listItem);
     console.log("hello")
