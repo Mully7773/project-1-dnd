@@ -3,7 +3,10 @@ var crVar = $('#crEnter');
 var monstListEl = $('#monster-list');
 var monsterArray = [];
 var acceptedClasses = ['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'swarm', 'undead'];
-
+var monsterHistory = [];
+if (localStorage.getItem("monsters")) {
+    monsterHistory = (localStorage.getItem("monsters"))
+}
 var fetchStatus = "";
 
 function goGet() {
@@ -44,6 +47,7 @@ function populate() {
         monsterCard.append(monsterSize);
         monsterSize.append(monsterType);
         monstListEl.append(monsterCard);
+        
     }
 
     $("#top-display").text(`Challenge Rating: ${thisMonster.challenge_rating}`)
@@ -81,7 +85,19 @@ searchBtn.on('click', function() {
 // dropdown menu
  $(document).foundation();
 
+ monstListEl.on("click", function(event){
+    // $("div").html("Triggered by a " + event.target.nodeName + " element.");
+    var nameOfMonster = ($(event.target).text())
+    // populate(event.target.textContent.)
+    console.log(nameOfMonster)
+    
+    // localStorage.setItem("monsters", nameOfMonster)
 
+    monsterHistory.push(nameOfMonster);
+    //  var selectedMonster = new Set(monsterHistory);
+    //  monsterHistory = Array.from(selectedMonster)
+    // localStorage.setItem("monsters", JSON.stringify(monsterHistory));
+  });
 
 // TODO: Add a second API request to get the next page's worth of data if result returns >50.
 

@@ -54,13 +54,23 @@
     border-radius: 6px;
 }
 
-
+.menu.align-right li {
+    height: 44px;
+}
 .drop, li {
  background: #0a0a0a;
  text-decoration: underline;
 }
-
-
+.menu  li a {
+    color: rgb(112, 3, 214);
+    
+}
+.menu li a:hover {
+    color: rgb(3, 3, 152);
+}
+.menu li a:active {
+    color: white;
+}
 .monsterCard h4 {
     font-weight: 600;
 }
