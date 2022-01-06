@@ -120,6 +120,7 @@ monstListEl.on('click', '.monsterCard', function(event) {
 
 });
 
+// remove monster from list when clicked
 $('#search-history').on('click', '.list-group-item', function(event) {
     event.target.remove();
     var remove = $(event.target).attr('data-name')
@@ -131,37 +132,21 @@ $('#search-history').on('click', '.list-group-item', function(event) {
     
 });
 
+// populate saved monsters from local storage
+function callStorage() {
+    console.log("hello");
+    searchedMonsterArray = JSON.parse(localStorage.getItem("Monster-Name"))
+    for (var i = 0; i < searchedMonsterArray.length; i++) {
+        var localMonster = searchedMonsterArray[i];
+        var searchedMonster = $("<li>").addClass("list-group-item").text(localMonster);
+        $("#search-history").append(searchedMonster);
+     }
+ }
 
-//   monstListEl.on('click', '.monsterCard', function(event) {
-//       var nameOfMonster = ($(event.target).text())
-//       console.log(nameOfMonster);
-//       if(!searchedMonsterArray.includes(nameOfMonster)) {
-//           searchedMonsterArray.push(nameOfMonster);
-//           var searchedMonster = $("<li>");
-//           searchedMonster.addClass("list-group-item")
-//           searchedMonster.text(nameOfMonster);
-//           $("#searchHistory").append(searchedMonster);
-//       }
-  
-//       localStorage.setItem("Monster-Name", JSON.stringify(searchedMonsterArray));
-      
-//   });
- 
- 
- // var listItem = $(this).text(); //Probably a problem here --
- // populate(listItem);
- 
- 
- // function init() {
- //     var searchedMonsterArray = JSON.parse(localStorage.getItem(searchedRatingArray))
- 
- //     }
- // }
- // init();
- 
- // TODO: Make an init() function that populates the page from local storage when loaded.
- 
- // We could also leverage local storage to allow people to store creatures they're interested in using. The cards could be made clickable, and clicking would store them in a list on the left column (below the search boxes). Those could be clicked off to remove them.
+ callStorage();
+
+
+// TODO: Append "x" after items in the storage list when hovered
  
  // If we wanted to go really ham for some reason, we could add further query parameters that would allow people to filter by what sources they want. Since some of these sources are *really* weird, and the API returns the source of the material which can be filtered using "?document__slug=".
  
