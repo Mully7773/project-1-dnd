@@ -126,9 +126,8 @@ $('#search-history').on('click', '.list-group-item', function(event) {
     console.log(`${remove} sakujo!`);
     searchedMonsterArray.splice($.inArray(remove, searchedMonsterArray),1)
     console.log(searchedMonsterArray);
-
     localStorage.setItem("Monster-Name", JSON.stringify(searchedMonsterArray));
-    
+
 });
 
 
