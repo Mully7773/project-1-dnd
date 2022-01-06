@@ -4,7 +4,7 @@ var monstListEl = $('#monster-list');
 var monsterArray = [];
 var searchedMonsterArray = [];
 var acceptedClasses = ['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'swarm', 'undead'];
-var hitDamage = [];
+
 
 
 
@@ -64,12 +64,22 @@ function populate() {
         var monsterName = $('<h4>').addClass('monsterName').text(thisMonster.name);
         var monsterSize = $('<p>').addClass('monsterSize').text(`${thisMonster.size} `);
         var monsterType = $('<span>').addClass('monsterType').text(thisMonster.type);
+        var monsterHitDamage = $('<p>').text("Strength: " + thisMonster.strength);
+        var monsterDexterity = $('<p>').text("Dexterity: " + thisMonster.dexterity);
+        var monsterCharisma = $('<p>').text("Charisma : " + thisMonster.charisma);
+        var monsterIntelligence = $('<p>').text("Intelligence: " + thisMonster.intelligence);
+
         typeCleaner();
         monsterCard.append(monsterName);
         monsterCard.append(monsterSize);
         monsterSize.append(monsterType);
         monstListEl.append(monsterCard);
+        monsterCard.append(monsterHitDamage);
+        monsterCard.append(monsterCharisma);
+        monsterCard.append(monsterDexterity);
+        monsterCard.append(monsterIntelligence);
         
+        // console.log(monsterHitDamage)
     }
 
     $("#top-display").text(`Challenge Rating: ${thisMonster.challenge_rating}`)
