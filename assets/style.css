@@ -5,6 +5,10 @@
     font-family: 'MedievalSharp', cursive !important;
 }
 
+p {
+    margin-bottom: 4px;
+}
+
 .header-logo {
     height: 95px;
     margin-left: 5px;
@@ -88,8 +92,11 @@ header p {
 
 .list-group-item {
     /* text-align: center; */
+    border-radius: 4px;
     padding: 2px;
+    margin: 2px;
     border-bottom: 1px solid #e6e6e6;
+    width: fit-content;
 }
 
 .list-group-item:hover, .list-group-item:focus {
@@ -215,4 +222,3 @@ header p {
     background: rgb(21,30,33);
     background: radial-gradient(circle, rgba(21,30,33,1) 0%, rgba(88,88,88,1) 100%);
 }
-

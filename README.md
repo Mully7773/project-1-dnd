@@ -17,13 +17,18 @@ Before or during a game, it is often helpful know how great a threat a monster i
 
 
 ## General Information:
- Upon making a successful search, users are presented with monster cards that contain the following information: monster name, monster challenge rating, monster type, and ability scores. Users may also type in their favorite snack to get a random snack under that category that they can use to further enhance their D&D experience. You can't play D&D without snacks.
+Upon making a successful search, users are presented with monster cards that contain the following information: monster name, monster challenge rating, monster type, and ability scores. Users may also type in their favorite snack to get a random snack under that category that they can use to further enhance their D&D experience. You can't play D&D without snacks.
 
 
- ## Our Two API's
+## Our Two API's:
 * [Open5e](https://open5e.com) - A Dungeons and Dragons open-source resource that includes all mosnters, spells, and more from the 5th edition of D&D. 
 * [spoonacular API](https://spoonacular.com/food-api) - An API that provides a random snack based on user text input.
 
+## Future Features:
+Our group has brainstormed several additional features that could be added to the application:
+* When a user hovers over a saved creature, that monster's card is displayed.
+* Each monster's card has a button which when clicked displays the monster's full data.
+* Checkboxes could be included that would allow users to narrow down the source books that the search pulls from (e.g. just the base game, or filter for certain expansion books).
 
 ## Technologies Used:
 1. HTML
