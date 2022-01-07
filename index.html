@@ -22,20 +22,6 @@
 
     <header>
 
-        <!-- Two different schemas -->
-
-        <!-- <div class="top-bar">
-            <div class="top-bar-left">
-                <div class="icon-bar one-up">
-                    <a href="index.html">
-                    <img class="header-logo" src="assets/images/icons/spiked-dragon-head.svg">
-                    </a>
-                </div>
-            </div>
-                <div class="top-bar-title">
-                    <h1 class=>Dragon Masters</h1>
-                </div> -->
-
         <div class="title-bar">
             <div class="title-bar-left">
                 <div>
@@ -65,14 +51,8 @@
 
         </div>
 
-        <!-- <ul class="menu">
-                <li class="menu-text"></li>
-            </ul> -->
-
         </div>
     </header>
-    <!-- The header and current form is a placeholder I put in to test functionality. Feel free to replace with something nicer. :] -Ben -->
-
 
     <!-- Jumbotron -->
     <div id="jumbotron" class="callout large primary ">
@@ -131,8 +111,6 @@
             <!-- for the second api -->
             <form id="foodForm">
                 <div class="callout secondary">
-                    <!-- <button type="submit" class="subBtn button">Submit</button>
-                    <input type="text"  id="citySearch"> -->
                     <label for="snack">
                         <h5>Search a snack!!</h5>
                     </label>
@@ -144,8 +122,9 @@
             </form>
             
                 <div class="callout secondary">
-                    <h5 class="text-center">Search History</h5>
-                    <ul id="search-history" class="list-group">
+                    <h5 class="text-center">Saved Monsters</h5>
+                    <p class="text-center">(Click an item to remove it from the list)</p>
+                    <ul id="save-history" class="list-group">
                       <!-- Append li here -->
                     </ul>
                 </div>
@@ -156,13 +135,10 @@
             <div class="columns large-12 medium-12" id="results-container">
                 <h3 id="top-display">Select a Challenge Rating to begin your search!</h3>
                 <div class="lead menu align-center" id="monster-list">
-                    <!-- <div class="monsterCard"><div class="innerDiv">Results</div></div>
-                    <div class="monsterCard"><div class="innerDiv">Results</div></div>
-                    <div class="monsterCard"><div class="innerDiv">Results</div></div>
-                    <div class="monsterCard"><div class="innerDiv">Results</div></div> -->
+                    <!-- Monsters populate via goGet -->
                 </div>
                 <div id="pag-spot">
-                    <!-- Populated when necessary via goGet -->
+                    <!-- Nav buttons populate when necessary via goGet -->
                 </div>
                 <br>
             </div>

@@ -1,6 +1,8 @@
 var imageFood = document.querySelector("#img1");
 var API1 =  "bc3600e23d5e465f999caa4b7e68f31a"
 var API2 = "4205dfaac5c8485eb2c6e53fe9758c5c"
+
+
 function randomFood(foodSearch) {
     fetch("https://api.spoonacular.com/food/menuItems/search?query=" + foodSearch + "&number=1&apiKey=" + NOTHING)//add API KEY when needed
         .then(function (response) {
