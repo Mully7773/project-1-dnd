@@ -3,6 +3,7 @@ var crVar = $('#crEnter');
 var monstListEl = $('#monster-list');
 var monsterArray = [];
 var savedMonsterArray = [];
+var savedMonsterTypes = [];
 var acceptedClasses = ['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'swarm', 'undead'];
 
 
@@ -42,16 +43,16 @@ function populate() {
     for (var i = 0; i < monsterArray.results.length; i++) {
         var thisMonster = monsterArray.results[i];
 
-        var monsterCard = $('<div>').addClass(`monster-card ${thisMonster.type}-type`).attr('data-name', thisMonster.name, 'data-type', thisMonster.type);
-        var monsterName = $('<h4>').addClass('monsterName').text(thisMonster.name).attr('data-name', thisMonster.name, 'data-type', thisMonster.type);
-        var monsterSize = $('<h5>').addClass('monsterSize').text(`${thisMonster.size} `).attr('data-name', thisMonster.name, 'data-type', thisMonster.type);
-        var monsterType = $('<span>').addClass('monsterType').text(thisMonster.type).attr('data-name', thisMonster.name, 'data-type', thisMonster.type);
-        var monsterStrength = $('<p>').text("Strength: " + thisMonster.strength).attr('data-name', thisMonster.name, 'data-type', thisMonster.type);
-        var monsterDexterity = $('<p>').text("Dexterity: " + thisMonster.dexterity).attr('data-name', thisMonster.name, 'data-type', thisMonster.type);
-        var monsterConstitution = $('<p>').text("Constitution: " + thisMonster.constitution).attr('data-name', thisMonster.name, 'data-type', thisMonster.type);
-        var monsterIntelligence = $('<p>').text("Intelligence: " + thisMonster.intelligence).attr('data-name', thisMonster.name, 'data-type', thisMonster.type);
-        var monsterWisdom = $('<p>').text("Dexterity: " + thisMonster.wisdom).attr('data-name', thisMonster.name, 'data-type', thisMonster.type);
-        var monsterCharisma = $('<p>').text("Charisma : " + thisMonster.charisma).attr('data-name', thisMonster.name, 'data-type', thisMonster.type);
+        var monsterCard = $('<div>').addClass(`monster-card ${thisMonster.type}-type`).attr({'data-name': thisMonster.name, 'data-type': thisMonster.type});
+        var monsterName = $('<h4>').addClass('monsterName').text(thisMonster.name).attr({'data-name': thisMonster.name, 'data-type': thisMonster.type});
+        var monsterSize = $('<h5>').addClass('monsterSize').text(`${thisMonster.size} `).attr({'data-name': thisMonster.name, 'data-type': thisMonster.type});
+        var monsterType = $('<span>').addClass('monsterType').text(thisMonster.type).attr({'data-name': thisMonster.name, 'data-type': thisMonster.type});
+        var monsterStrength = $('<p>').text("Strength: " + thisMonster.strength).attr({'data-name': thisMonster.name, 'data-type': thisMonster.type});
+        var monsterDexterity = $('<p>').text("Dexterity: " + thisMonster.dexterity).attr({'data-name': thisMonster.name, 'data-type': thisMonster.type});
+        var monsterConstitution = $('<p>').text("Constitution: " + thisMonster.constitution).attr({'data-name': thisMonster.name, 'data-type': thisMonster.type});
+        var monsterIntelligence = $('<p>').text("Intelligence: " + thisMonster.intelligence).attr({'data-name': thisMonster.name, 'data-type': thisMonster.type});
+        var monsterWisdom = $('<p>').text("Dexterity: " + thisMonster.wisdom).attr({'data-name': thisMonster.name, 'data-type': thisMonster.type});
+        var monsterCharisma = $('<p>').text("Charisma : " + thisMonster.charisma).attr({'data-name': thisMonster.name, 'data-type': thisMonster.type});
 
         typeCleaner();
 
@@ -109,12 +110,13 @@ searchBtn.on('click', function() {
 // also there's gotta be a better way of doing this than adding the same data-attribute to each element of the div.
 monstListEl.on('click', '.monster-card', function(event) {
     var nameOfMonster = ($(event.target).attr('data-name'));
-    var typeOfMonster = ($(event.target).attr('class'));
+    var typeOfMonster = ($(event.target).attr('data-type'));
     console.log(nameOfMonster);
     console.log(typeOfMonster);
     savedMonsterArray.push(nameOfMonster);
+    savedMonsterTypes.push(typeOfMonster);
     var savedMonster = $("<li>");
-    savedMonster.addClass("list-group-item").text(nameOfMonster).attr('data-name', nameOfMonster, 'data-type', typeOfMonster);
+    savedMonster.addClass(`list-group-item ${typeOfMonster}-type`).text(nameOfMonster).attr({'data-name': nameOfMonster, 'data-type': typeOfMonster});
     $("#save-history").append(savedMonster);
  
     localStorage.setItem("Monster-Name", JSON.stringify(savedMonsterArray));

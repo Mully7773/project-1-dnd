@@ -84,8 +84,11 @@ header p {
 
 .list-group-item {
     /* text-align: center; */
+    border-radius: 4px;
     padding: 2px;
+    margin: 2px;
     border-bottom: 1px solid #e6e6e6;
+    width: fit-content;
 }
 
 .list-group-item:hover, .list-group-item:focus {
