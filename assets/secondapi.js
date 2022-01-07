@@ -13,17 +13,16 @@ function randomFood(foodSearch) {
                 fetchStatus = "bad"
                 backUp();
             }
-            
         })
         .then(function (data) {
             if(data){   
                 
                  $("#img1").attr("src",  data.menuItems[0].image);
                 console.log(data)
-           
         }
     })
 }
+
 function  backUp() {
     var stuff = document.getElementById("foodSearch").value;
 
@@ -57,9 +56,7 @@ function getInputValue() {
     console.log(inputVal)
 
     console.log("hello")
-}
-
-// document.querySelector("#foodForm").addEventListener("submit", getInputValue)
+}=
 
 $("#foodForm").on('submit', function(event) {
 event.preventDefault();
@@ -67,4 +64,3 @@ getInputValue();
 });
 
 document.querySelector(".subBtn").addEventListener("click", getInputValue)
-
