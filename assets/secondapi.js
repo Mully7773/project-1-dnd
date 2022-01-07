@@ -56,7 +56,7 @@ function getInputValue() {
     console.log(inputVal)
 
     console.log("hello")
-}=
+}
 
 $("#foodForm").on('submit', function(event) {
 event.preventDefault();

@@ -74,4 +74,3 @@ spiked-dragon-head - https://game-icons.net/1x1/delapouite/spiked-dragon-head.ht
 You can find our website here:
 
 https://the-wake.github.io/project-1-dnd/
-

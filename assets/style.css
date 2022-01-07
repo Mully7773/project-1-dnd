@@ -27,10 +27,12 @@ header p {
 
 #jumbo-header-text {
     color: rgba(243, 243, 243, 0.774);
+    text-shadow: 2px 2px 4px black;
 }
 
 #jumbo-header-subtext {
-    color:rgba(168, 223, 192, 0.692)
+    color:rgba(168, 223, 192, 0.692);
+    text-shadow: 2px 2px 4px black;
 }
 
 #jumbotron {
@@ -44,12 +46,11 @@ header p {
     width: 15%;
     margin-left: 15px;
 }
-#img1 {
-    box-shadow: 1px -1px 2px 2px;
-}
+
 .callout{
     box-shadow: 5px 5px 5px;
 }
+
 .results-screen {
     float: right;
     width: 80%;
@@ -70,6 +71,7 @@ header p {
     border-style: solid;
     border-width: 1px;
     border-radius: 6px;
+    box-shadow: 3px 3px 3px black;
 }
 
 .monster-card h4 {
@@ -89,23 +91,21 @@ header p {
 .list-group {
     margin-bottom: 1rem;
     border: 1px solid #e6e6e6;
-    /* overflow: hidden; */
     color: #0a0a0a;
     list-style: none;
     width: auto;
 }
 
 .list-group-item {
-    /* text-align: center; */
     border-radius: 4px;
     padding: 2px;
     margin: 2px;
     border-bottom: 1px solid #e6e6e6;
     width: fit-content;
+    box-shadow: 1px 1px 2px black;
 }
 
 .list-group-item:hover, .list-group-item:focus {
-    /* background-color: #30c071; */
     text-decoration: underline;
 }
 
@@ -155,8 +155,6 @@ header p {
     float: left;
     margin-left: 90px;
 }
-
-/* This alignment is pretty brute-forced and doesn't work great at small viewport sizes. */
 
 .aberration-type {
     background: rgb(130,172,203);

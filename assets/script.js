@@ -87,7 +87,6 @@ function populate() {
     }
 };
 
-
 searchBtn.on('click', function() {
     var paramVar = crVar.val();
     var requestUrl = 'https://api.open5e.com/monsters/?challenge_rating=' + paramVar;

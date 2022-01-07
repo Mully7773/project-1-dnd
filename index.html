@@ -6,14 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D&D Monster Challenge Rating Search</title>
-    <!-- Google Fonts -->
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
-    <!-- Foundation CDN -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
         crossorigin="anonymous">
-        <!-- <link rel="stylesheet" href="css/foundation.css" /> -->
-    <!-- Personal Stylesheet -->
+
     <link rel="stylesheet" href="assets/style.css">
 
 </head>
@@ -31,29 +30,24 @@
                     <h1 class="title-bar-title">D&D Seekers</h1>
                 </div>
             </div>
-            
+
             <div class="title-bar-right">
                 <p>Made with open5e API</p>
                 <ul class="dropdown menu align-right menu-icon" id="drop" data-dropdown-menu>
-                    
+
                     <li class="is-dropdown-submenu-parent">
-                        
-                      <a href="#"></a>
-                      <ul class="menu imgOfBack dropImage" id="backdrop">
-                        <li><a href="https://open5e.com/">Offical DnD Api Page</a></li>
-                        <li><a href="https://github.com/the-wake/project-1-dnd">Github</a></li>
-                        <li><a href="https://spoonacular.com/food-api/docs">Spoonacular Page</a></li>
-                        <!-- <background-img class="imgOfBack" src="" alt="fuckboi"> -->
-                           
-            
+
+                        <a href="#"></a>
+                        <ul class="menu imgOfBack dropImage" id="backdrop">
+                            <li><a href="https://open5e.com/">Offical DnD Api Page</a></li>
+                            <li><a href="https://github.com/the-wake/project-1-dnd">Github</a></li>
+                            <li><a href="https://spoonacular.com/food-api/docs">Spoonacular Page</a></li>
+
+                        </ul>
                     </li>
-                    
-                  </ul>
-                      
+                </ul>
             </div>
-
         </div>
-
     </header>
 
     <!-- Jumbotron -->
@@ -110,7 +104,6 @@
                 </div>
             </form>
 
-            <!-- for the second api -->
             <form id="foodForm">
                 <div class="callout secondary calloutstyle">
                     <label for="snack">
@@ -122,25 +115,22 @@
                     <p>It's dangerous to go alone, take this.</p>
                 </div>
             </form>
-            
-                <div class="callout secondary">
-                    <h5 class="text-center">Saved Monsters</h5>
-                    <p class="text-center">(Click an item to remove it from the list)</p>
-                    <ul id="save-history" class="list-group">
-                      <!-- Append li here -->
-                    </ul>
-                </div>
-            
+
+            <div class="callout secondary">
+                <h5 class="text-center">Saved Monsters</h5>
+                <p class="text-center">(Click an item to remove it from the list)</p>
+                <ul id="save-history" class="list-group">
+                </ul>
+            </div>
+
         </div>
 
         <section class="results-screen row">
             <div class="columns large-12 medium-12" id="results-container">
                 <h3 id="top-display">Select a Challenge Rating to begin your search</h3>
                 <div class="lead menu align-center" id="monster-list">
-                    <!-- Monsters populate via goGet -->
                 </div>
                 <div id="pag-spot">
-                    <!-- Nav buttons populate when necessary via goGet -->
                 </div>
                 <br>
             </div>
@@ -148,12 +138,9 @@
 
     </main>
 
-
-    <!-- jQuery links -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
-    <!-- AJAX and foundation JavaScript links -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js"
         crossorigin="anonymous"></script>
