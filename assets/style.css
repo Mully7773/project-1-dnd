@@ -40,8 +40,8 @@ header p {
     width: 15%;
     margin-left: 15px;
 }
-#img {
-    box-shadow: 0px 0px 3px 1px;
+#img1 {
+    box-shadow: 1px -1px 2px 2px;
 }
 .callout{
     box-shadow: 5px 5px 5px;
@@ -111,16 +111,25 @@ header p {
 }
 
 #backdrop {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 253, 253);
     
 }
 .menu  li a {
-    color: rgb(112, 3, 214);
+    color: rgb(0, 0, 0);
     
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(255, 255, 255);
     
 }
+.dropImage {
+    background:url(images/d8m5q5z-7ffbeaf2-7af8-4f7f-b026-5cbc25dc95b6.jpg) no-repeat center center ;
+    -webkit-background-composite: cover;
+    background-size: cover;
+}
+
+
 #backdrop a:hover {
-    color: rgb(3, 3, 152);
+    text-decoration: underline;
 }
 .menu li a:active {
     color: white;
