@@ -79,8 +79,9 @@ function populate() {
             // console.log(`type error: ${thisMonster.name} = ${thisMonster.type}`)
             // humanoid checker
             if (thisMonster.type.includes('human') || thisMonster.type.includes('Human')) {
-                // console.log(`humanoid discovered: ${thisMonster.name}`);
+                console.log(`humanoid discovered: ${thisMonster.name}`);
                 monsterCard.attr("class", "monster-card humanoidType");
+                console.log(`fixed ${thisMonster.name}`);
             }
             // beast checker
             if (thisMonster.type.includes('beast') || thisMonster.type.includes('Beast')) {
@@ -120,18 +121,23 @@ monstListEl.on('click', '.monster-card', function(event) {
     $("#save-history").append(savedMonster);
  
     localStorage.setItem("Monster-Name", JSON.stringify(savedMonsterArray));
+    localStorage.setItem("Monster-Type", JSON.stringify(savedMonsterTypes));
 
 });
 
 // remove monster from list when clicked
 $('#save-history').on('click', '.list-group-item', function(event) {
     event.target.remove();
-    var remove = $(event.target).attr('data-name')
-    console.log(`${remove} sakujo!`);
+    var remove = $(event.target).attr('data-name');
+    var removeType = $(event.target).attr('data-type');
+    console.log(`${remove} sakujo! (${removeType})`);
     savedMonsterArray.splice($.inArray(remove, savedMonsterArray),1)
+    savedMonsterTypes.splice($.inArray(removeType, savedMonsterTypes),1)
     console.log(savedMonsterArray);
+    console.log(savedMonsterTypes);
 
     localStorage.setItem("Monster-Name", JSON.stringify(savedMonsterArray));
+    localStorage.setItem("Monster-Type", JSON.stringify(savedMonsterTypes));
     
 });
  
@@ -139,22 +145,13 @@ $('#save-history').on('click', '.list-group-item', function(event) {
  function callStorage() {
     console.log("hello");
     savedMonsterArray = JSON.parse(localStorage.getItem("Monster-Name")) || [];
+    savedMonsterTypes = JSON.parse(localStorage.getItem("Monster-Type")) || [];
     for (var i = 0; i < savedMonsterArray.length; i++) {
         var localMonster = savedMonsterArray[i];
-        // Had to add .attr('data-name', localMonster) to the below string to it to properly remove items populated from callStorage().
-        var savedMonster = $("<li>").addClass("list-group-item").text(localMonster).attr('data-name', localMonster);
+        var localType = savedMonsterTypes[i];
+        var savedMonster = $("<li>").addClass(`list-group-item ${localType}-type`).text(localMonster).attr({'data-name': localMonster, 'data-type': localType});
         $("#save-history").append(savedMonster);
     }
 };
 
-
-
-
-// TODO: Append "x" after items in the storage list when hovered.
-
 callStorage();
-
-
-// TODO: Stretch goal: Add the appropriate class to the saved monsters (so they get the gradients).
- 
- // If we wanted to go really ham for some reason, we could add further query parameters that would allow people to filter by what sources they want. Since some of these sources are *really* weird, and the API returns the source of the material which can be filtered using "?document__slug=".
