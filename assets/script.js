@@ -146,10 +146,12 @@ $('#save-history').on('click', '.list-group-item', function(event) {
 };
 
 
+// TODO: Re-add API key for snack API. (As long as you don't call the function when the page loads, having the key in the code won't cause it to be called when not needed.)
+
+// TODO: Fix event listener on food search button to instead listen for submission on the food search field.
+
 // TODO: Append "x" after items in the storage list when hovered.
 
 // TODO: Stretch goal: Add the appropriate class to the saved monsters (so they get the gradients).
 
-// TODO: Re-add API key for snack API. (As long as you don't call the function when the page loads, having the key in the code won't cause it to be called when not needed.)
- 
  // If we wanted to go really ham for some reason, we could add further query parameters that would allow people to filter by what sources they want. Since some of these sources are *really* weird, and the API returns the source of the material which can be filtered using "?document__slug=".
