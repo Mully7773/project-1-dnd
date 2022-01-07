@@ -2,7 +2,7 @@ var searchBtn = $('#searchBtn');
 var crVar = $('#crEnter');
 var monstListEl = $('#monster-list');
 var monsterArray = [];
-var searchedMonsterArray = [];
+var savedMonsterArray = [];
 var acceptedClasses = ['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'swarm', 'undead'];
 
 
@@ -111,56 +111,45 @@ searchBtn.on('click', function() {
 monstListEl.on('click', '.monsterCard', function(event) {
     var nameOfMonster = ($(event.target).attr('data-name'));
     console.log(nameOfMonster);
-    searchedMonsterArray.push(nameOfMonster);
-    var searchedMonster = $("<li>");
-    searchedMonster.addClass("list-group-item").text(nameOfMonster).attr('data-name', nameOfMonster);
-    $("#search-history").append(searchedMonster);
+    savedMonsterArray.push(nameOfMonster);
+    var savedMonster = $("<li>");
+    savedMonster.addClass("list-group-item").text(nameOfMonster).attr('data-name', nameOfMonster);
+    $("#save-history").append(savedMonster);
  
-    localStorage.setItem("Monster-Name", JSON.stringify(searchedMonsterArray));
+    localStorage.setItem("Monster-Name", JSON.stringify(savedMonsterArray));
 
 });
 
 // remove monster from list when clicked
-$('#search-history').on('click', '.list-group-item', function(event) {
+$('#save-history').on('click', '.list-group-item', function(event) {
     event.target.remove();
     var remove = $(event.target).attr('data-name')
     console.log(`${remove} sakujo!`);
-    searchedMonsterArray.splice($.inArray(remove, searchedMonsterArray),1)
-    console.log(searchedMonsterArray);
-    localStorage.setItem("Monster-Name", JSON.stringify(searchedMonsterArray));
+    savedMonsterArray.splice($.inArray(remove, savedMonsterArray),1)
+    console.log(savedMonsterArray);
+    localStorage.setItem("Monster-Name", JSON.stringify(savedMonsterArray));
 
 });
 
-// populate saved monsters from local storage
-function callStorage() {
-    console.log("hello");
-    if(searchedMonsterArray[0]) {
-        searchedMonsterArray = JSON.parse(localStorage.getItem("Monster-Name"))
-        for (var i = 0; i < searchedMonsterArray.length; i++) {
-            var localMonster = searchedMonsterArray[i];
-            var searchedMonster = $("<li>").addClass("list-group-item").text(localMonster);
-            $("#search-history").append(searchedMonster);
-        }
-    }
- }
-
  callStorage();
  
- // //  Ben's callStorage saved in case need to pull code
- //  function callStorage() {
- //     console.log("hello");
- //     searchedMonsterArray = JSON.parse(localStorage.getItem("Monster-Name"))||[]
- //     for (var i = 0; i < searchedMonsterArray.length; i++) {
- //         var localMonster = searchedMonsterArray[i];
- //         var searchedMonster = $("<li>").addClass("list-group-item").text(localMonster);
- //         $("#search-history").append(searchedMonster);
- //      }
- //  }
- //  callStorage();
+ // populate saved monsters from local storage
+ function callStorage() {
+    console.log("hello");
+    savedMonsterArray = JSON.parse(localStorage.getItem("Monster-Name")) || [];
+    for (var i = 0; i < savedMonsterArray.length; i++) {
+        var localMonster = savedMonsterArray[i];
+        // Had to add .attr('data-name', localMonster) to the below string to it to properly remove items populated from callStorage().
+        var savedMonster = $("<li>").addClass("list-group-item").text(localMonster).attr('data-name', localMonster);
+        $("#save-history").append(savedMonster);
+    }
+};
 
 
 // TODO: Append "x" after items in the storage list when hovered.
 
 // TODO: Stretch goal: Add the appropriate class to the saved monsters (so they get the gradients).
+
+// TODO: Re-add API key for snack API. (As long as you don't call the function when the page loads, having the key in the code won't cause it to be called when not needed.)
  
  // If we wanted to go really ham for some reason, we could add further query parameters that would allow people to filter by what sources they want. Since some of these sources are *really* weird, and the API returns the source of the material which can be filtered using "?document__slug=".
