@@ -138,14 +138,14 @@ monstListEl.on('click', '.monsterCard', function(event) {
 });
 
 // remove monster from list when clicked
-$('#save-history').on('submit', '.list-group-item', function(event) {
+$('#save-history').on('click', '.list-group-item', function(event) {
     event.target.remove();
     var remove = $(event.target).attr('data-name')
     console.log(`${remove} sakujo!`);
     savedMonsterArray.splice($.inArray(remove, savedMonsterArray),1)
     console.log(savedMonsterArray);
     localStorage.setItem("Monster-Name", JSON.stringify(savedMonsterArray));
-
+    
 });
 
 
@@ -161,7 +161,7 @@ $('#save-history').on('submit', '.list-group-item', function(event) {
         $("#save-history").append(savedMonster);
     }
 };
-
+callStorage()
 
 // TODO: Append "x" after items in the storage list when hovered.
 
