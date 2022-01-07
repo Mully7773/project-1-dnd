@@ -21,11 +21,9 @@ function goGet(requestUrl) {
         populate();
         if (monsterArray.next || monsterArray.previous) {
             if (monsterArray.next) {
-                // console.log('next found')
                 var nextPage = $('<a>').addClass('pag-button').attr('id', 'next-button').text('Next Results').attr('href', '#top-display').attr('data-request', monsterArray.next);
                 $('#pag-spot').append(nextPage);
             } if (monsterArray.previous) {
-                // console.log('previous found')
                 var prevPage = $('<a>').addClass('pag-button').attr('id', 'prev-button').text('Previous Results').attr('href', '#top-display').attr('data-request', monsterArray.previous);
                 $('#pag-spot').append(prevPage);
             }
@@ -74,23 +72,15 @@ function populate() {
     $("#top-display").text(`Challenge Rating: ${thisMonster.challenge_rating} (${monsterArray.count} Results)`)
 
     function typeCleaner() {
-        // console.log(thisMonster.type);
         if (!acceptedClasses.includes(thisMonster.type)) {
-            // console.log(`type error: ${thisMonster.name} = ${thisMonster.type}`)
-            // humanoid checker
             if (thisMonster.type.includes('human') || thisMonster.type.includes('Human')) {
-                // console.log(`humanoid discovered: ${thisMonster.name}`);
                 thisMonster.type = "humanoid";
                 console.log(`fixed ${thisMonster.name}`);
             }
-            // beast checker
             if (thisMonster.type.includes('beast') || thisMonster.type.includes('Beast')) {
-                // console.log(`beast discovered: ${thisMonster.name}`);
                 thisMonster.type = "beast";
             }
-            // swarm checker
             if (thisMonster.type.includes('swarm') || thisMonster.type.includes('Swarm')) {
-                // console.log(`swarm discovered: ${thisMonster.name}`);
                 thisMonster.type = "swarm";
             }
         }
@@ -104,11 +94,6 @@ searchBtn.on('click', function() {
     goGet(requestUrl);
 });
 
-// dropdown menu
- $(document).foundation();
-
-// add monster to storage and list
-// also there's gotta be a better way of doing this than adding the same data-attribute to each element of the div.
 monstListEl.on('click', '.monster-card', function(event) {
     var nameOfMonster = ($(event.target).attr('data-name'));
     var typeOfMonster = ($(event.target).attr('data-type'));
@@ -125,7 +110,6 @@ monstListEl.on('click', '.monster-card', function(event) {
 
 });
 
-// remove monster from list when clicked
 $('#save-history').on('click', '.list-group-item', function(event) {
     event.target.remove();
     var remove = $(event.target).attr('data-name');
@@ -140,9 +124,8 @@ $('#save-history').on('click', '.list-group-item', function(event) {
     localStorage.setItem("Monster-Type", JSON.stringify(savedMonsterTypes));
     
 });
- 
- // populate saved monsters from local storage
- function callStorage() {
+
+function callStorage() {
     console.log("hello");
     savedMonsterArray = JSON.parse(localStorage.getItem("Monster-Name")) || [];
     savedMonsterTypes = JSON.parse(localStorage.getItem("Monster-Type")) || [];
@@ -155,3 +138,5 @@ $('#save-history').on('click', '.list-group-item', function(event) {
 };
 
 callStorage();
+
+$(document).foundation();

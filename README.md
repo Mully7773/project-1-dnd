@@ -16,6 +16,16 @@ Before or during a game, it is often helpful know how great a threat a monster i
 * **Bailey Behning** - The lady of the realm. Fights for our cause, the sake of coding, and the betterment of all coders.
 
 
+## User Story
+As a DM (Dungeon Master) of Dungeons & Dragons:
+* I want to be able to quickly and easily look up monsters I can use for my encounters.
+* I want to tell at a glance what type the creature is.
+* I want to know its ability scores (Strength, Dexterity, etc.).
+* I want to be able to make a list of monsters I'm considering using.
+* I want my list to be saved between sessions.
+* I want to be inspired by pictures of delicious food.
+
+
 ## General Information:
 Upon making a successful search, users are presented with monster cards that contain the following information: monster name, monster challenge rating, monster type, and ability scores. Users may also type in their favorite snack to get a random snack under that category that they can use to further enhance their D&D experience. You can't play D&D without snacks.
 

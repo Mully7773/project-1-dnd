@@ -48,10 +48,7 @@ function  backUp() {
 
 
 function getInputValue() {
-    
-    // e.preventDefault()
 
-    // Selecting the input element and get its value 
     var inputVal = document.getElementById("foodSearch").value;
 
     randomFood(inputVal)
