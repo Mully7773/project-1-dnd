@@ -127,23 +127,36 @@ $('#search-history').on('click', '.list-group-item', function(event) {
     console.log(`${remove} sakujo!`);
     searchedMonsterArray.splice($.inArray(remove, searchedMonsterArray),1)
     console.log(searchedMonsterArray);
-
     localStorage.setItem("Monster-Name", JSON.stringify(searchedMonsterArray));
-    
+
 });
 
 // populate saved monsters from local storage
 function callStorage() {
     console.log("hello");
-    searchedMonsterArray = JSON.parse(localStorage.getItem("Monster-Name"))
-    for (var i = 0; i < searchedMonsterArray.length; i++) {
-        var localMonster = searchedMonsterArray[i];
-        var searchedMonster = $("<li>").addClass("list-group-item").text(localMonster);
-        $("#search-history").append(searchedMonster);
-     }
+    if(searchedMonsterArray[0]) {
+        searchedMonsterArray = JSON.parse(localStorage.getItem("Monster-Name"))
+        for (var i = 0; i < searchedMonsterArray.length; i++) {
+            var localMonster = searchedMonsterArray[i];
+            var searchedMonster = $("<li>").addClass("list-group-item").text(localMonster);
+            $("#search-history").append(searchedMonster);
+        }
+    }
  }
 
  callStorage();
+ 
+ // //  Ben's callStorage saved in case need to pull code
+ //  function callStorage() {
+ //     console.log("hello");
+ //     searchedMonsterArray = JSON.parse(localStorage.getItem("Monster-Name"))||[]
+ //     for (var i = 0; i < searchedMonsterArray.length; i++) {
+ //         var localMonster = searchedMonsterArray[i];
+ //         var searchedMonster = $("<li>").addClass("list-group-item").text(localMonster);
+ //         $("#search-history").append(searchedMonster);
+ //      }
+ //  }
+ //  callStorage();
 
 
 // TODO: Append "x" after items in the storage list when hovered.
@@ -151,4 +164,3 @@ function callStorage() {
 // TODO: Stretch goal: Add the appropriate class to the saved monsters (so they get the gradients).
  
  // If we wanted to go really ham for some reason, we could add further query parameters that would allow people to filter by what sources they want. Since some of these sources are *really* weird, and the API returns the source of the material which can be filtered using "?document__slug=".
- 
