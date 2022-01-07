@@ -12,6 +12,11 @@
     width: 130px;
 }
 
+header p {
+    position: relative;
+    left: -20px;
+}
+
 #jumbo-header-text {
     color: rgba(243, 243, 243, 0.774);
 }
@@ -43,7 +48,7 @@
     padding: 0 15px;
 }
 
-.monsterCard {
+.monster-card {
     background-color: rgb(223, 223, 223);
     width: 250px;
     min-height: 125px;
@@ -54,39 +59,50 @@
     border-radius: 6px;
 }
 
+.monster-card h4 {
+    font-weight: 600;
+    margin-bottom: 2px;
+}
 
+.monster-card h5 {
+    margin-bottom: 8px;
+}
 
+.monster-card p {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
 
-  
-  .list-group-item:hover, .list-group-item:focus {
-    /* background-color: #30c071; */
-    text-decoration: underline;
-    
-  }
-  
-  .list-group {
+.list-group {
     margin-bottom: 1rem;
     border: 1px solid #e6e6e6;
     /* overflow: hidden; */
     color: #0a0a0a;
     list-style: none;
     width: auto;
-  }
-  
-  
-  .list-group-item {
+}
+
+.list-group-item {
     /* text-align: center; */
     padding: 2px;
     border-bottom: 1px solid #e6e6e6;
-  }
+}
 
+.list-group-item:hover, .list-group-item:focus {
+    /* background-color: #30c071; */
+    text-decoration: underline;
+}
+
+.list-group-item:hover::after {
+    content: " (X)";
+}
 
 .menu.align-right li {
     height: 44px;
 }
 
 #backdrop {
-    background-color: #0a0a0a;
+    background-color: whitesmoke;
     
 }
 .menu  li a {
@@ -99,12 +115,6 @@
 }
 .menu li a:active {
     color: white;
-}
-
-
-
-.monsterCard h4 {
-    font-weight: 600;
 }
 
 #pag-spot {

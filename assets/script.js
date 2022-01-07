@@ -8,31 +8,17 @@ var acceptedClasses = ['aberration', 'beast', 'celestial', 'construct', 'dragon'
 
 
 
-
-
-var fetchStatus = "";
-
 function goGet(requestUrl) {
     $('#pag-spot').empty();
     fetch(requestUrl)
     .then(function (response) {
-        // Conditionals (and fetchStatus variable) unnecessary if using dropdown menu selection.
-        if (response.ok) {
-            fetchStatus = "good";
-            return response.json();
-        } else {
-            fetchStatus = "bad";
-            console.log("bad request");
-        }
+        return response.json();
     })
     .then(function (data) {
-        if (fetchStatus == "good") {
-            console.log(data);
-            monsterArray = data;
-            populate();
-        } else {
-            console.log("bad request the second");
-        } if (monsterArray.next || monsterArray.previous) {
+        console.log(data);
+        monsterArray = data;
+        populate();
+        if (monsterArray.next || monsterArray.previous) {
             if (monsterArray.next) {
                 // console.log('next found')
                 var nextPage = $('<a>').addClass('pag-button').attr('id', 'next-button').text('Next Results').attr('href', '#top-display').attr('data-request', monsterArray.next);
@@ -46,8 +32,6 @@ function goGet(requestUrl) {
     })
 };
 
-// If we want, we can make the <a> elements also buttons.
-
 $('#pag-spot').on('click', '.pag-button', function(event) {
     goGet($(event.target).attr('data-request'))
     console.log ($(event.target).attr('data-request'));
@@ -57,33 +41,31 @@ function populate() {
     monstListEl.empty();
     for (var i = 0; i < monsterArray.results.length; i++) {
         var thisMonster = monsterArray.results[i];
-        // monsterCard.attr("class", "selectableMonster" ) //Given an ID for on click event
-        // var innerDiv = $('<div>').addClass('innerDiv');
 
-        var monsterCard = $('<div>').addClass(`monsterCard ${thisMonster.type}-type`).attr('data-name', thisMonster.name);
+        var monsterCard = $('<div>').addClass(`monster-card ${thisMonster.type}-type`).attr('data-name', thisMonster.name);
         var monsterName = $('<h4>').addClass('monsterName').text(thisMonster.name).attr('data-name', thisMonster.name);
-        var monsterSize = $('<p>').addClass('monsterSize').text(`${thisMonster.size} `).attr('data-name', thisMonster.name);
+        var monsterSize = $('<h5>').addClass('monsterSize').text(`${thisMonster.size} `).attr('data-name', thisMonster.name);
         var monsterType = $('<span>').addClass('monsterType').text(thisMonster.type).attr('data-name', thisMonster.name);
-        var monsterHitDamage = $('<p>').text("Strength: " + thisMonster.strength);
-        var monsterDexterity = $('<p>').text("Dexterity: " + thisMonster.dexterity);
-        var monsterCharisma = $('<p>').text("Charisma : " + thisMonster.charisma);
-        var monsterIntelligence = $('<p>').text("Intelligence: " + thisMonster.intelligence);
-
-
-       
+        var monsterStrength = $('<p>').text("Strength: " + thisMonster.strength).attr('data-name', thisMonster.name);
+        var monsterDexterity = $('<p>').text("Dexterity: " + thisMonster.dexterity).attr('data-name', thisMonster.name);
+        var monsterConstitution = $('<p>').text("Constitution: " + thisMonster.constitution).attr('data-name', thisMonster.name);
+        var monsterIntelligence = $('<p>').text("Intelligence: " + thisMonster.intelligence).attr('data-name', thisMonster.name);
+        var monsterWisdom = $('<p>').text("Dexterity: " + thisMonster.wisdom).attr('data-name', thisMonster.name);
+        var monsterCharisma = $('<p>').text("Charisma : " + thisMonster.charisma).attr('data-name', thisMonster.name);
 
         typeCleaner();
-        monsterCard.append(monsterName);
-        monsterCard.append(monsterSize);
-        monsterSize.append(monsterType);
-        monstListEl.append(monsterCard);
 
-        monsterCard.append(monsterHitDamage);
-        monsterCard.append(monsterCharisma);
+        monsterCard.append(monsterName);
+        monsterSize.append(monsterType);
+        monsterCard.append(monsterSize);
+        monsterCard.append(monsterStrength);
         monsterCard.append(monsterDexterity);
+        monsterCard.append(monsterConstitution);
         monsterCard.append(monsterIntelligence);
+        monsterCard.append(monsterWisdom);
+        monsterCard.append(monsterCharisma);
         
-        // console.log(monsterHitDamage)
+        monstListEl.append(monsterCard);
 
     }
 
@@ -97,17 +79,17 @@ function populate() {
             // humanoid checker
             if (thisMonster.type.includes('human') || thisMonster.type.includes('Human')) {
                 // console.log(`humanoid discovered: ${thisMonster.name}`);
-                monsterCard.attr("class", "monsterCard humanoidType");
+                monsterCard.attr("class", "monster-card humanoidType");
             }
             // beast checker
             if (thisMonster.type.includes('beast') || thisMonster.type.includes('Beast')) {
                 // console.log(`beast discovered: ${thisMonster.name}`);
-                monsterCard.attr("class", "monsterCard beastType");
+                monsterCard.attr("class", "monster-card beastType");
             }
             // swarm checker
             if (thisMonster.type.includes('swarm') || thisMonster.type.includes('Swarm')) {
                 // console.log(`swarm discovered: ${thisMonster.name}`);
-                monsterCard.attr("class", "monsterCard swarmType");
+                monsterCard.attr("class", "monster-card swarmType");
             }
         }
     }
@@ -125,7 +107,7 @@ searchBtn.on('click', function() {
 
 // add monster to storage and list
 // also there's gotta be a better way of doing this than adding the same data-attribute to each element of the div.
-monstListEl.on('click', '.monsterCard', function(event) {
+monstListEl.on('click', '.monster-card', function(event) {
     var nameOfMonster = ($(event.target).attr('data-name'));
     console.log(nameOfMonster);
     savedMonsterArray.push(nameOfMonster);
@@ -144,11 +126,10 @@ $('#save-history').on('click', '.list-group-item', function(event) {
     console.log(`${remove} sakujo!`);
     savedMonsterArray.splice($.inArray(remove, savedMonsterArray),1)
     console.log(savedMonsterArray);
+    
     localStorage.setItem("Monster-Name", JSON.stringify(savedMonsterArray));
     
 });
-
-
  
  // populate saved monsters from local storage
  function callStorage() {
@@ -161,12 +142,9 @@ $('#save-history').on('click', '.list-group-item', function(event) {
         $("#save-history").append(savedMonster);
     }
 };
-callStorage()
 
-// TODO: Append "x" after items in the storage list when hovered.
+callStorage();
 
 // TODO: Stretch goal: Add the appropriate class to the saved monsters (so they get the gradients).
-
-
  
  // If we wanted to go really ham for some reason, we could add further query parameters that would allow people to filter by what sources they want. Since some of these sources are *really* weird, and the API returns the source of the material which can be filtered using "?document__slug=".
