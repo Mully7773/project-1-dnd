@@ -29,11 +29,30 @@ function randomFood(foodSearch) {
 }
 
 function getInputValue(e) {
+    
     e.preventDefault()
     // Selecting the input element and get its value 
     var inputVal = document.getElementById("foodSearch").value;
 
     randomFood(inputVal);
     console.log(inputVal)
+
+    console.log("hello")
 }
-document.querySelector(".subBtn").addEventListener("click", getInputValue)
+document.querySelector(".subBtn").addEventListener("submit", getInputValue)
+
+
+
+// Get the input field
+// var input = document.getElementById("myInput");
+
+// // Execute a function when the user releases a key on the keyboard
+// input.addEventListener("keyup", function(event) {
+//   // Number 13 is the "Enter" key on the keyboard
+//   if (event.keyCode === 13) {
+//     // Cancel the default action, if needed
+//     event.preventDefault();
+//     // Trigger the button element with a click
+//     document.getElementById("myBtn").click();
+//   }
+// });
