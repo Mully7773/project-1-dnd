@@ -11,7 +11,7 @@ Before or during a game, it is often helpful know how great a threat a monster i
 
 * **Grant Royseth** - The valiant knight of the shade. Well-known for his ability to adapt and defend against the darkness of APIs. He was summoned to answer the threat of API.
 
-* **Nick Mullenmeister** - The dreamer of the lost. Happens to know a thing or two about JavaScript and CSS, but often finds himself lacking the know-how. Does his best though. Could someday become a coding sorcerer.
+* **Nick Mullenmeister** - The dreamer of the lost. Happens to know a thing or two about JavaScript and CSS, but often finds himself mystified. Does his best though. Could someday become a coding sorcerer.
 
 * **Bailey Behning** - The lady of the realm. Fights for our cause, the sake of coding, and the betterment of all coders.
 
@@ -52,6 +52,11 @@ Our group has brainstormed several additional features that could be added to th
 ![Screenshot of full screen]()
 ![Screenshot of full screen]()
 
+## Image Sources:
+
+planet-g811dbd317_1920-pixabay - https://pixabay.com/illustrations/planet-sience-fiction-fantasy-world-1702788/
+
+spiked-dragon-head - https://game-icons.net/1x1/delapouite/spiked-dragon-head.html
 
 
 ## GitPages Link:
