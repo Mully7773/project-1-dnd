@@ -59,15 +59,32 @@ function populate() {
         var thisMonster = monsterArray.results[i];
         // monsterCard.attr("class", "selectableMonster" ) //Given an ID for on click event
         // var innerDiv = $('<div>').addClass('innerDiv');
+
         var monsterCard = $('<div>').addClass(`monsterCard ${thisMonster.type}-type`).attr('data-name', thisMonster.name);
         var monsterName = $('<h4>').addClass('monsterName').text(thisMonster.name).attr('data-name', thisMonster.name);
         var monsterSize = $('<p>').addClass('monsterSize').text(`${thisMonster.size} `).attr('data-name', thisMonster.name);
         var monsterType = $('<span>').addClass('monsterType').text(thisMonster.type).attr('data-name', thisMonster.name);
+        var monsterHitDamage = $('<p>').text("Strength: " + thisMonster.strength);
+        var monsterDexterity = $('<p>').text("Dexterity: " + thisMonster.dexterity);
+        var monsterCharisma = $('<p>').text("Charisma : " + thisMonster.charisma);
+        var monsterIntelligence = $('<p>').text("Intelligence: " + thisMonster.intelligence);
+
+
+       
+
         typeCleaner();
         monsterCard.append(monsterName);
         monsterCard.append(monsterSize);
         monsterSize.append(monsterType);
         monstListEl.append(monsterCard);
+
+        monsterCard.append(monsterHitDamage);
+        monsterCard.append(monsterCharisma);
+        monsterCard.append(monsterDexterity);
+        monsterCard.append(monsterIntelligence);
+        
+        // console.log(monsterHitDamage)
+
     }
 
     $("#top-display").text(`Challenge Rating: ${thisMonster.challenge_rating}`)
@@ -128,10 +145,10 @@ $('#save-history').on('click', '.list-group-item', function(event) {
     savedMonsterArray.splice($.inArray(remove, savedMonsterArray),1)
     console.log(savedMonsterArray);
     localStorage.setItem("Monster-Name", JSON.stringify(savedMonsterArray));
-
+    
 });
 
- callStorage();
+
  
  // populate saved monsters from local storage
  function callStorage() {
@@ -144,12 +161,12 @@ $('#save-history').on('click', '.list-group-item', function(event) {
         $("#save-history").append(savedMonster);
     }
 };
-
+callStorage()
 
 // TODO: Append "x" after items in the storage list when hovered.
 
 // TODO: Stretch goal: Add the appropriate class to the saved monsters (so they get the gradients).
 
-// TODO: Re-add API key for snack API. (As long as you don't call the function when the page loads, having the key in the code won't cause it to be called when not needed.)
+
  
  // If we wanted to go really ham for some reason, we could add further query parameters that would allow people to filter by what sources they want. Since some of these sources are *really* weird, and the API returns the source of the material which can be filtered using "?document__slug=".
