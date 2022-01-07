@@ -1,10 +1,10 @@
 var imageFood = document.querySelector("#img1");
 var API1 = "bc3600e23d5e465f999caa4b7e68f31a"
 var API2 = "4205dfaac5c8485eb2c6e53fe9758c5c"
-
-
 function randomFood(foodSearch) {
+
     fetch("https://api.spoonacular.com/food/menuItems/search?query=" + foodSearch + "&number=1&apiKey=" + API1 )//add API KEY when needed
+
         .then(function (response) {
             if (response.ok) {
                 fetchStatus = "goodFood";
@@ -47,11 +47,10 @@ function  backUp() {
 }
 
 
-
-
+function getInputValue() {
     
-function getInputValue(e) {
-    e.preventDefault()
+    // e.preventDefault()
+
     // Selecting the input element and get its value 
     var inputVal = document.getElementById("foodSearch").value;
 
@@ -59,5 +58,16 @@ function getInputValue(e) {
     
     
     console.log(inputVal)
+
+    console.log("hello")
 }
+
+// document.querySelector("#foodForm").addEventListener("submit", getInputValue)
+
+$("#foodForm").on('submit', function(event) {
+event.preventDefault();
+getInputValue();
+});
+
 document.querySelector(".subBtn").addEventListener("click", getInputValue)
+
