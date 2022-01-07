@@ -36,7 +36,12 @@ header p {
     width: 15%;
     margin-left: 15px;
 }
-
+#img {
+    box-shadow: 0px 0px 3px 1px;
+}
+.callout{
+    box-shadow: 10px;
+}
 .results-screen {
     float: right;
     width: 80%;
