@@ -42,6 +42,8 @@ function populate() {
     monstListEl.empty();
     for (var i = 0; i < monsterArray.results.length; i++) {
         var thisMonster = monsterArray.results[i];
+        
+        typeCleaner();
 
         var monsterCard = $('<div>').addClass(`monster-card ${thisMonster.type}-type`).attr({'data-name': thisMonster.name, 'data-type': thisMonster.type});
         var monsterName = $('<h4>').addClass('monsterName').text(thisMonster.name).attr({'data-name': thisMonster.name, 'data-type': thisMonster.type});
@@ -54,7 +56,6 @@ function populate() {
         var monsterWisdom = $('<p>').text("Dexterity: " + thisMonster.wisdom).attr({'data-name': thisMonster.name, 'data-type': thisMonster.type});
         var monsterCharisma = $('<p>').text("Charisma : " + thisMonster.charisma).attr({'data-name': thisMonster.name, 'data-type': thisMonster.type});
 
-        typeCleaner();
 
         monsterCard.append(monsterName);
         monsterSize.append(monsterType);
@@ -70,28 +71,27 @@ function populate() {
 
     }
 
-    $("#top-display").text(`Challenge Rating: ${thisMonster.challenge_rating}`)
+    $("#top-display").text(`Challenge Rating: ${thisMonster.challenge_rating} (${monsterArray.count} Results)`)
 
-    // This looks more complicated than it is. There are a few items in the API that return aberrant creature types, so this looks for them and reconciles them with the accepted types.
     function typeCleaner() {
         // console.log(thisMonster.type);
         if (!acceptedClasses.includes(thisMonster.type)) {
             // console.log(`type error: ${thisMonster.name} = ${thisMonster.type}`)
             // humanoid checker
             if (thisMonster.type.includes('human') || thisMonster.type.includes('Human')) {
-                console.log(`humanoid discovered: ${thisMonster.name}`);
-                monsterCard.attr("class", "monster-card humanoidType");
+                // console.log(`humanoid discovered: ${thisMonster.name}`);
+                thisMonster.type = "humanoid";
                 console.log(`fixed ${thisMonster.name}`);
             }
             // beast checker
             if (thisMonster.type.includes('beast') || thisMonster.type.includes('Beast')) {
                 // console.log(`beast discovered: ${thisMonster.name}`);
-                monsterCard.attr("class", "monster-card beastType");
+                thisMonster.type = "beast";
             }
             // swarm checker
             if (thisMonster.type.includes('swarm') || thisMonster.type.includes('Swarm')) {
                 // console.log(`swarm discovered: ${thisMonster.name}`);
-                monsterCard.attr("class", "monster-card swarmType");
+                thisMonster.type = "swarm";
             }
         }
     }
