@@ -13,7 +13,7 @@ Before or during a game, it is often helpful know how great a threat a monster i
 
 * **Nick Mullenmeister** - The dreamer of the lost. Happens to know a thing or two about JavaScript and CSS, but often finds himself lacking the know-how. Does his best though. Could someday become a coding sorcerer.
 
-* **Bailey Behning** - The lady of the realm. Upon her own quest, but fights for our cause, the sake of coding, and the betterment of all coders.
+* **Bailey Behning** - The lady of the realm. Fights for our cause, the sake of coding, and the betterment of all coders.
 
 
 ## General Information:
