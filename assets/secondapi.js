@@ -1,33 +1,33 @@
 var imageFood = document.querySelector("#img1");
 var API1 = "bc3600e23d5e465f999caa4b7e68f31a"
 var API2 = "4205dfaac5c8485eb2c6e53fe9758c5c"
-var inputVal;
+
 
 function randomFood(foodSearch) {
-    fetch("https://api.spoonacular.com/food/menuItems/search?query=" + foodSearch + "&number=1&apiKey=123345456" )//add API KEY when needed
+    fetch("https://api.spoonacular.com/food/menuItems/search?query=" + foodSearch + "&number=1&apiKey=" + API1 )//add API KEY when needed
         .then(function (response) {
             if (response.ok) {
                 fetchStatus = "goodFood";
                 return response.json();
             }else{
                 fetchStatus = "bad"
-                backUp(inputVal);
+                backUp();
             }
             
         })
         .then(function (data) {
             if(data){   
-                var pic = data
-                pic = $("#img1").attr("src",  data.menuItems[0].image);
+                
+                 $("#img1").attr("src",  data.menuItems[0].image);
                 console.log(data)
            
         }
     })
 }
-function  backUp(inputVal) {
-    
+function  backUp() {
+    var stuff = document.getElementById("foodSearch").value;
 
-    fetch("https://api.spoonacular.com/food/menuItems/search?query=" + inputVal + "&number=1&apiKey=" + API2 )
+    fetch("https://api.spoonacular.com/food/menuItems/search?query=" + stuff + "&number=1&apiKey=" + API2 )
     .then(function (response) {
         if (response.ok) {
             fetchStatus = "goodFood";
@@ -39,8 +39,8 @@ function  backUp(inputVal) {
     })
     .then(function (data) {
         if(data){   
-            var pic = data
-          pic =  $("#img1").attr("src",  data.menuItems[0].image);
+            
+            $("#img1").attr("src",  data.menuItems[0].image);
             console.log(data)
         }
     })
@@ -56,9 +56,7 @@ function getInputValue(e) {
     var inputVal = document.getElementById("foodSearch").value;
 
     randomFood(inputVal)
-    if(randomFood = false){
-        backUp(inputVal)
-    }
+    
     
     console.log(inputVal)
 }
