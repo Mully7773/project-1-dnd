@@ -147,7 +147,13 @@ $('#save-history').on('click', '.list-group-item', function(event) {
     }
 };
 
+
+
+
+// TODO: Append "x" after items in the storage list when hovered.
+
 callStorage();
+
 
 // TODO: Stretch goal: Add the appropriate class to the saved monsters (so they get the gradients).
  

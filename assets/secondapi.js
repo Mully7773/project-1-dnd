@@ -26,12 +26,24 @@ function randomFood(foodSearch) {
         })
 }
 
-function getInputValue(e) {
-    e.preventDefault()
+function getInputValue() {
+    
+    // e.preventDefault()
     // Selecting the input element and get its value 
     var inputVal = document.getElementById("foodSearch").value;
 
     randomFood(inputVal);
     console.log(inputVal)
+
+    console.log("hello")
 }
+
+// document.querySelector("#foodForm").addEventListener("submit", getInputValue)
+
+$("#foodForm").on('submit', function(event) {
+event.preventDefault();
+getInputValue();
+});
+
 document.querySelector(".subBtn").addEventListener("click", getInputValue)
+
