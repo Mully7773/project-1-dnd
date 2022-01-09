@@ -59,8 +59,14 @@ Our group has brainstormed several additional features that could be added to th
 
 ## Screenshots and GIF:
 
-![Screenshot of full screen]()
-![Screenshot of full screen]()
+![Screenshot of full screen](./assets/images/screenshots/S0.png)
+
+![Screenshot of full screen](./assets/images/screenshots/S1.png)
+
+![Screenshot of full screen](./assets/images/screenshots/S2.png)
+
+![Screenshot of full screen](./assets/images/screenshots/S3.png)
+
 
 ## Image Sources:
 
