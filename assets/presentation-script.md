@@ -3,6 +3,7 @@
 ## Intro
 
 ### Nick
+### **Page 1:** Intro Page
 Welcome to our presentation! Our group has built a monster search application for the tabletop RPG Dungeons & Dragons 5th Edition!
 
 *Introduce party*
@@ -10,6 +11,7 @@ Welcome to our presentation! Our group has built a monster search application fo
 ## Elevator Pitch
 
 ### Ben
+### **Page 2:** Gary Gygax Quote
 Using the right monsters is the most important part of building any D&D encounter. But it's been 7+ since 5th Edition launched, and there are now hundreds of creatures scattered across dozens of source books. Often these books are badly indexed and arranged, and with a huge range of Challenge Ratings (basically a monster's level), finding the right monster can be a huge pain.
 
 Fortunately, with the magic of APIs and open5e, now there's an easy way to look up creatures of a certain Challenge Rating across all of 5th Edition!
@@ -17,6 +19,7 @@ Fortunately, with the magic of APIs and open5e, now there's an easy way to look 
 ## Concept
 
 ### Grant
+### **Page 3:** Finding the Right Monster for the Right Job
 *User Story*
 As a DM (Dungeon Master) of Dungeons & Dragons:
 * I want to be able to quickly and easily look up monsters I can use for my encounters.
@@ -27,6 +30,7 @@ As a DM (Dungeon Master) of Dungeons & Dragons:
 * I want to be inspired by pictures of delicious food.
 
 ## Process
+### **Page 4:** Introducing the Monster Finder
 
 ### Nick
 *Explain Foundation*
@@ -38,12 +42,14 @@ As a DM (Dungeon Master) of Dungeons & Dragons:
 *Explain spoonacular*
 
 ### Ben
+### **Page 5:** Challenges
 As the project manager, I pretty much just told other people what to do and then watched YouTube.
 <!-- That is a joke. -->
 
 We had a number of challenges in applying the proper classes to objects. Because most objects are being generated dynamically, passing the right data to the right element, and handling that in local storage, was very important. Also, the API only returns 50 items per request, so we had to add "pagination" to the app to display anything that went over the first 50 returns.
 
 ## Demo!
+### **Page 6:** Demonstration
 
 ### Nick
 *Show challenge rating parameters and run a search*
@@ -64,6 +70,8 @@ We had a number of challenges in applying the proper classes to objects. Because
 *Show GitHub link to page*
 
 ## Future Developments
+### **Page 7:** Future Developments
+### Ben
 * When a user hovers over a saved creature, that monster's card is displayed.
 * Each monster's card has a button which when clicked displays the monster's full data.
 * Checkboxes could be included that would allow users to narrow down the source books that the search pulls from (e.g. just the base game, or filter for certain expansion books).
