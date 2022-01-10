@@ -243,3 +243,9 @@ header p {
     background: rgb(21,30,33);
     background: radial-gradient(circle, rgba(21,30,33,1) 0%, rgba(88,88,88,1) 100%);
 }
+
+@media screen and (max-width: 922px) {
+    #searchBars {
+        width: 95%;
+    }
+}

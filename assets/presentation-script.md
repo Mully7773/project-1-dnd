@@ -18,6 +18,14 @@ Using the right monsters is the most important part of building any D&D encounte
 
 Fortunately, with the magic of APIs and open5e, now there's an easy way to look up creatures of a certain Challenge Rating across all of 5th Edition!
 
+Tools used:
+* HTML, CSS, JavaScript
+* Foundation
+* Open5e API
+* Spoontacular API
+* GitHub & GitBash
+* VS Code
+
 ## Concept
 
 ### Bailey
@@ -59,9 +67,9 @@ As the project manager, I pretty much just told other people what to do and then
 *Show challenge rating parameters and run a search*
 
 ### Ben
-*Explain monster stats* <!-- Ben is the D&D SME, so he'll do most of the rules-related explainers -->
-*Explain how the backgrounds work*
-*Do pagination explainer*
+*Explain monster stats* <!-- Ben is the D&D SME, so he'll do most of the rules-related explainers -->  
+*Explain how the backgrounds work*  
+*Do pagination explainer*  
 
 ### Grant
 *Show spoontacular*
@@ -70,11 +78,12 @@ As the project manager, I pretty much just told other people what to do and then
 *Talk about saved list and local storage*
 
 ### Grant
-*Show off overall iterface, nav, links, etc.*
+*Show off overall iterface, nav, links, etc.*  
 *Show GitHub link to page*
 
 ## Future Developments
 ### Ben
+* Float the UI at the top of the page when the user scrolls down.
 * When a user hovers over a saved creature, that monster's card is displayed.
 * Each monster's card has a button which when clicked displays the monster's full data (in a modal).
 * Checkboxes could be included that would allow users to narrow down the source books that the search pulls from (e.g. just the base game, or filter for certain expansion books).
