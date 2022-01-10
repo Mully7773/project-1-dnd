@@ -36,7 +36,7 @@ header p {
 }
 
 #jumbotron {
-    background:url(images/planet-g811dbd317_1920-pixabay.jpg) no-repeat center center fixed;
+    background:url(/images/planet-g811dbd317_1920-pixabay.jpg) no-repeat center center fixed;
     -webkit-background-composite: cover;
     background-size: cover;
 }
