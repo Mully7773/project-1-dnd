@@ -18,7 +18,7 @@ Fortunately, with the magic of APIs and open5e, now there's an easy way to look 
 
 ## Concept
 
-### Grant
+### Bailey
 ### **Page 3:** Finding the Right Monster for the Right Job
 *User Story*
 As a DM (Dungeon Master) of Dungeons & Dragons:
