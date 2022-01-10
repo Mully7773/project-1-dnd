@@ -16,7 +16,7 @@ Fortunately, with the magic of APIs and open5e, now there's an easy way to look 
 
 ## Concept
 
-### Grant
+### Bailey
 *User Story*
 As a DM (Dungeon Master) of Dungeons & Dragons:
 * I want to be able to quickly and easily look up monsters I can use for my encounters.
