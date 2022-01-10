@@ -36,7 +36,7 @@ header p {
 }
 
 #jumbotron {
-    background:url(images/planet-g811dbd317_1920-pixabay.jpg) no-repeat center center fixed;
+    background:url(../images/planet-g811dbd317_1920-pixabay.jpg) no-repeat center center fixed;
     -webkit-background-composite: cover;
     background-size: cover;
 }
@@ -78,6 +78,7 @@ header p {
 .monster-card h4 {
     font-weight: 600;
     margin-bottom: 2px;
+    text-shadow: 1px 1px 1px grey;
 }
 
 .monster-card h5 {
@@ -114,7 +115,7 @@ header p {
 }
 
 .list-group-item:hover::after {
-    content: " (X)";
+    content: " (x)";
 }
 
 .menu.align-right li {
@@ -123,31 +124,35 @@ header p {
 
 #backdrop {
     background-color: rgb(255, 253, 253);
-    
 }
-.menu  li a {
+
+.menu li a {
     color: rgb(0, 0, 0);
-    
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: rgb(255, 255, 255);
-    
 }
+
 .dropImage {
-    background:url(images/d8m5q5z-7ffbeaf2-7af8-4f7f-b026-5cbc25dc95b6.jpg) no-repeat center center ;
+    background:url(../images/d8m5q5z-7ffbeaf2-7af8-4f7f-b026-5cbc25dc95b6.jpg) no-repeat center center ;
     -webkit-background-composite: cover;
     background-size: cover;
 }
 
-
 #backdrop a:hover {
     text-decoration: underline;
 }
+
 .menu li a:active {
     color: white;
 }
 
 #pag-spot {
     display: block;
+}
+
+.pag-button {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 #next-button {
